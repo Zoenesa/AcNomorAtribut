@@ -257,6 +257,8 @@ namespace AcNomorAtribut
             }
         }
 
+        public static List<string> atributName;
+
         private void Lanjut_Click(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab == tabPage1)
@@ -267,6 +269,19 @@ namespace AcNomorAtribut
             }
             else if (tabControl1.SelectedTab == tabPage2)
             {
+                atributName = new List<string>();
+                for (int i = 0; i < dgListBlocks.Rows.Count; i++)
+                {
+                    bool flag = (bool)dgListBlocks.Rows[i].Cells[0].Value;
+                    if (flag)
+                    {
+                        
+                    }
+                    else
+                    {
+
+                    }
+                }
                 tabPage2.Enabled = false;
                 tabPage3.Enabled = true;
                 tabControl1.SelectedTab = tabPage3;
@@ -300,8 +315,14 @@ namespace AcNomorAtribut
                 value[1] = Convert.ToString(item);
                 dgListBlocks.Rows.Add(value);
             }
+            atributName = new List<string>();
+            foreach (KeyValuePair<string, Autodesk.AutoCAD.DatabaseServices.ObjectId> item in kb.KoleksiAtributBlokRefs)
+            {
+                atributName.Add(item.Key);
+            }
+            
         }
-  
+        
         private void dwgList_Remove(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             if (dgDrawings.Rows.Count > 0)
@@ -353,5 +374,20 @@ namespace AcNomorAtribut
             dgListBlocks.CurrentRow.Cells[0].Value = !flag; 
         }
 
+        private void btnSelAll_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow rw in dgListBlocks.Rows)
+            {
+                rw.Cells[0].Value = true;
+            }
+        }
+
+        private void btnClearAll_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow rw in dgListBlocks.Rows)
+            {
+                rw.Cells[0].Value = false;
+            }
+        }
     }
 }

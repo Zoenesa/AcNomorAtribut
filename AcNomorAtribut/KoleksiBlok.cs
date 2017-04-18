@@ -145,10 +145,34 @@ namespace AcNomorAtribut
                                 {
                                     if (btr.HasAttributeDefinitions)
                                     {
-                                    KoleksiBlokTableId.Add(btr.Name, tbId);
+                                        KoleksiBlokTableId.Add(btr.Name, tbId);
+                                        ObjectIdCollection ObjRefIds = btr.GetBlockReferenceIds(true, false);
+                                        foreach (ObjectId ObjId in ObjRefIds)
+                                        {
+                                            BlockReference bRef = (BlockReference)tr.GetObject(ObjId, OpenMode.ForRead);
+                                            KoleksiBlockReferenceIds.Add(bRef.Name + bRef.Id, ObjId);
+                                            foreach (ObjectId AtrId in bRef.AttributeCollection)
+                                            {
+                                                AttributeReference AttRef = (AttributeReference)tr.GetObject(AtrId, OpenMode.ForRead);
+                                                try
+                                                {
+                                                    if (KoleksiAtributBlokRefs.Keys.Contains(AttRef.Tag))
+                                                    {
+                                                        continue;
+                                                    }
+                                                    KoleksiAtributBlokRefs.Add(AttRef.Tag, AttRef.Id);
+                                                }
+                                                catch
+                                                {
+
+                                                }
+                                                
+                                            }
+                                        }                                        
                                     }
                                 }
                             }
+                            
                         }
                     }
                     break;
