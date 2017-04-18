@@ -31,15 +31,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AcCoreMgd">
-      <HintPath>J:\PLUGINS &amp; ADDINS\AUTOCAD\ObjectARX\inc\AcCoreMgd.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Autodesk\ObjectARX\inc\AcCoreMgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="AcDbMgd">
-      <HintPath>J:\PLUGINS &amp; ADDINS\AUTOCAD\ObjectARX\inc\AcDbMgd.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Autodesk\ObjectARX\inc\AcDbMgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="AcMgd">
-      <HintPath>J:\PLUGINS &amp; ADDINS\AUTOCAD\ObjectARX\inc\AcMgd.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Autodesk\ObjectARX\inc\AcMgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="BlockAttribute.cs" />
     <Compile Include="Commands.cs" />
+    <Compile Include="DataBlok.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="formIncrementBlock.cs">
       <SubType>Form</SubType>
@@ -69,6 +70,12 @@
     <Compile Include="formListAttribut.Designer.cs">
       <DependentUpon>formListAttribut.cs</DependentUpon>
     </Compile>
+    <Compile Include="formTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTest.Designer.cs">
+      <DependentUpon>formTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="KoleksiBlok.cs" />
     <Compile Include="LateBinding.cs" />
     <Compile Include="mainform.cs">
@@ -78,6 +85,12 @@
       <DependentUpon>mainform.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TreeViewForm.designer.cs">
+      <DependentUpon>TreeViewForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="formIncrementBlock.resx">
@@ -86,8 +99,14 @@
     <EmbeddedResource Include="formListAttribut.resx">
       <DependentUpon>formListAttribut.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formTest.resx">
+      <DependentUpon>formTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainform.resx">
       <DependentUpon>mainform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeViewForm.resx">
+      <DependentUpon>TreeViewForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

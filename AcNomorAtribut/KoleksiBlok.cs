@@ -57,22 +57,32 @@ namespace AcNomorAtribut
 
         public KoleksiBlok(PilihanDrawing mode, string[] FileNames)
         {
-            switch (mode)
+            if (mode == PilihanDrawing.ExternalDrawing)
             {
-                case PilihanDrawing.CurrentDrawing:
-                    break;
-                case PilihanDrawing.PickFromDrawing:
-                    break;
-                case PilihanDrawing.ExternalDrawing:
-                    ListFileDwgs = new List<FileInfo>();
-                    foreach (string file in FileNames)
-                    {
-                        ListFileDwgs.Add(new FileInfo(file));
-                    }   
-                    break;
-                default:
-                    break;
+                ListFileDwgs = new List<FileInfo>();
+                dbFiles = new List<Database>();
+                for (int i = 0; i < FileNames.Length; i++)
+                {
+                    ListFileDwgs.Add(new FileInfo(FileNames[i]));
+                    dbFiles.Add(new Database(false, true));
+                    //try
+                    //{
+                    //    dbFiles[i].ReadDwgFile(ListFileDwgs[i].FullName, FileShare.Read, false, "");
+                    //}
+                    //catch (Autodesk.AutoCAD.Runtime.Exception acExep)
+                    //{
+                    //    throw new Autodesk.AutoCAD.Runtime.Exception(ErrorStatus.FilerError, acExep.Message);
+                    //}
+                }
             }
+        }
+
+        private List<Database> dbFiles;
+
+        private List<Database> DBFiles
+        {
+            get
+            { return dbFiles; }
         }
 
         /// <summary>
@@ -139,8 +149,6 @@ namespace AcNomorAtribut
                                 {
                                     continue;
                                 }
-                                //KoleksiBlokTableId = new Dictionary<string, ObjectId>();
-
                                 if (btr.GetBlockReferenceIds(true, false).Count > 0 )
                                 {
                                     if (btr.HasAttributeDefinitions)
@@ -165,8 +173,7 @@ namespace AcNomorAtribut
                                                 catch
                                                 {
 
-                                                }
-                                                
+                                                }                                                
                                             }
                                         }                                        
                                     }
@@ -242,6 +249,143 @@ namespace AcNomorAtribut
             }
             pm.Stop();
         }
+
+        private Dictionary<string, ObjectId> getbtId;
+
+        public Dictionary<string, ObjectId> GetBT_IDs
+        {
+            get
+            { return getbtId; }
+        }
+
+        public Dictionary<string, ObjectId> GetBlokTableIdFromDrawing(PilihanDrawing mode)
+        {
+            Dictionary<string, ObjectId> newList = new Dictionary<string, ObjectId>();
+            getbtId = new Dictionary<string, ObjectId>();
+            switch (mode)
+            {
+                case PilihanDrawing.CurrentDrawing:
+                    acDoc = AcAp.DocumentManager.MdiActiveDocument;
+                    acDbs = acDoc.Database;
+
+                    using (Transaction tr = acDbs.TransactionManager.StartTransaction())
+                    {
+                        BlockTable bt = (BlockTable)acDbs.BlockTableId.GetObject(OpenMode.ForRead) as BlockTable;
+                        foreach (ObjectId btId in bt)
+                        {
+                            BlockTableRecord btr = (BlockTableRecord)tr.GetObject(btId, OpenMode.ForRead);
+                            if (btr.HasAttributeDefinitions)
+                            {
+                                    if (newList.Keys.Contains(btr.Name))
+                                    {
+                                        continue;
+                                    }
+                                    newList.Add(btr.Name, btId);
+                                    getbtId.Add(btr.Name, btId);                                
+                            }
+                        }
+                    }
+
+                    break;
+                case PilihanDrawing.PickFromDrawing:
+                    break;
+                case PilihanDrawing.ExternalDrawing:                     
+                    for (int i = 0; i < DBFiles.Count; i++)
+                    {
+                        acDbs = new Database(false, true);
+                        try
+                        {
+                            acDbs.ReadDwgFile(ListFileDwgs[i].FullName, FileShare.Read, false, "");
+                        }
+                        catch (Autodesk.AutoCAD.Runtime.Exception acExep)
+                        {
+                            throw new Autodesk.AutoCAD.Runtime.Exception(ErrorStatus.FilerError, acExep.Message);
+                        }
+                        using (Transaction tr = acDbs.TransactionManager.StartTransaction())
+                        {
+                            BlockTable bt = (BlockTable)acDbs.BlockTableId.GetObject(OpenMode.ForRead) as BlockTable;
+                            foreach (ObjectId btId in bt)
+                            {
+                                BlockTableRecord btr = (BlockTableRecord)btId.GetObject(OpenMode.ForRead);
+                                if (btr.HasAttributeDefinitions)
+                                {
+                                    if (newList.Keys.Contains(btr.Name))
+                                    {
+                                        continue;
+                                    }
+                                    newList.Add(btr.Name, btId);
+                                    getbtId.Add(btr.Name, btId);
+                                }
+                            }
+                            //tr.Commit();
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return newList;
+        }
+
+        public Dictionary<string, ObjectId> GetBlockReferenceFromBtIds(PilihanDrawing mode)
+        {
+            Dictionary<string, ObjectId> newList = new Dictionary<string, ObjectId>();
+            ObjectIdCollection objIds = new ObjectIdCollection();
+            switch (mode)
+            {
+                case PilihanDrawing.CurrentDrawing:
+                    break;
+                case PilihanDrawing.PickFromDrawing:
+                    break;
+                case PilihanDrawing.ExternalDrawing:
+                    foreach (KeyValuePair<string, ObjectId> btName in GetBT_IDs)
+                    {
+                        for (int i1 = 0; i1 < DBFiles.Count; i1++)
+                        {
+                            acDbs = new Database(false, true);
+                            try
+                            {
+                                acDbs.ReadDwgFile(ListFileDwgs[i1].FullName, FileShare.Read, false, "");
+                            }
+                            catch (Autodesk.AutoCAD.Runtime.Exception acExep)
+                            {
+                                throw new Autodesk.AutoCAD.Runtime.Exception(ErrorStatus.FilerError, acExep.Message);
+                            }
+                            using (Transaction tr = acDbs.TransactionManager.StartTransaction())
+                            {
+                                BlockTable bt = acDbs.BlockTableId.GetObject(OpenMode.ForRead) as BlockTable;
+                                BlockTableRecord btr = (BlockTableRecord)tr.GetObject(bt[btName.Key], OpenMode.ForRead);
+                                objIds = btr.GetBlockReferenceIds(true, false);
+                                foreach (ObjectId id in objIds)
+                                {
+                                    BlockReference bRef = (BlockReference)tr.GetObject(id, OpenMode.ForRead);
+                                    newList.Add(btr.Name + id, id);
+                                }
+                            }
+                        }
+                    }                   
+                    break;
+                default:
+                    break;
+            }
+            return newList;
+        }
+
+        private System.Data.DataTable dtTabel;
+
+        public System.Data.DataTable BuildDatatabel()
+        {
+            dtTabel = new System.Data.DataTable();
+            dtTabel.Columns.Add(new System.Data.DataColumn("Column1", typeof(string), "Drawing File"));
+            dtTabel.Columns.Add(new System.Data.DataColumn("Column1", typeof(string), "Block Reference Name"));
+            dtTabel.Columns.Add(new System.Data.DataColumn("Column1", typeof(int), "Count"));
+            dtTabel.Columns.Add(new System.Data.DataColumn("Column1", typeof(string), "Atribut"));
+
+            System.Data.DataRow drow = dtTabel.NewRow();
+            drow.ItemArray = new object[] { (string)"Nama File", (string)"Blok Reference", Convert.ToInt32("1"), ""};
+            return dtTabel;
+        }
+
 
     }
 }
