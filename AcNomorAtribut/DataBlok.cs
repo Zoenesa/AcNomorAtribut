@@ -32,8 +32,7 @@ namespace AcNomorAtribut
             ListBlokTabel = new Dictionary<string, ObjectId>();
             ListBlokReference = new Dictionary<string, ObjectId>();
             ListAtributReference = new Dictionary<string, ObjectId>();
-            dt = new System.Data.DataTable("DataAtribut");             
-            GetBlockTable();
+ 
         }
 
         public FileInfo infoFile;
@@ -44,77 +43,61 @@ namespace AcNomorAtribut
 
         public Dictionary<string, ObjectId> ListAtributReference;
 
-        private void GetBlockTable()
+        public List<string> GetParentBlokName()
         {
-            ListBlokTabel = new Dictionary<string, ObjectId>();
+            List<string> newlist = new List<string>();
+            dataParentBlok = new List<string>();
             using (Transaction tr = acDb.TransactionManager.StartTransaction())
             {
-                BlockTable bt = (BlockTable)acDb.BlockTableId.GetObject(OpenMode.ForRead) as BlockTable;
-                foreach (ObjectId btid in bt)
+                BlockTable bt = acDb.BlockTableId.GetObject(OpenMode.ForRead) as BlockTable;
+                foreach (ObjectId objId in bt)
                 {
-                    BlockTableRecord btr = (BlockTableRecord)tr.GetObject(btid, OpenMode.ForRead);
+                    BlockTableRecord btr = (BlockTableRecord)objId.GetObject(OpenMode.ForRead);
                     if (btr.IsAnonymous)
                     {
                         continue;
                     }
-                    if (btr.GetBlockReferenceIds(true, false).Count > 0)
+                    if (btr.HasAttributeDefinitions)
+                    {                        
+                        newlist.Add(btr.Name);
+                        dataParentBlok.Add(btr.Name);
+                    }
+                }
+            }
+            return newlist;
+        }
+
+        private List<string> dataParentBlok;
+        public List<string> AttList;
+
+        public List<string> GetBlokRefs()
+        {
+            List<string> ParentBlok = new List<string>();
+            ParentBlok.AddRange(dataParentBlok);
+            List<string> newlist = new List<string>();
+            foreach (string item in ParentBlok)
+            {
+                using (Transaction tr = acDb.TransactionManager.StartTransaction())
+                {
+                    BlockTable bt = acDb.BlockTableId.GetObject(OpenMode.ForRead) as BlockTable;
+                    BlockTableRecord btr = (BlockTableRecord)tr.GetObject(bt[item], OpenMode.ForRead);
+                    ObjectIdCollection objIds = btr.GetBlockReferenceIds(true, false);
+                    foreach (ObjectId id in objIds)
                     {
-                        if (btr.HasAttributeDefinitions)
+                        BlockReference bRef = (BlockReference)tr.GetObject(id, OpenMode.ForRead);
+                        AttList = new List<string>();
+                        newlist.Add(string.Format("{0}:{1}",btr.Name, id));
+                        foreach (ObjectId idRef in bRef.AttributeCollection)
                         {
-                            if (ListBlokTabel.Keys.Contains(btr.Name))
-                            {
-                                continue;
-                            }
-                            ListBlokTabel.Add(btr.Name, btid);
-                            //BlockReference bref = (BlockReference)tr.GetObject(
-                            //    btid, OpenMode.ForRead);
-                            //foreach (ObjectId refId in bref.AttributeCollection)
-                            //{
-                            //    AttributeReference atref = (AttributeReference)tr.GetObject(
-                            //        refId, OpenMode.ForRead);
-                            //    ListAtributReference.Add(atref.Tag, refId);
-                            //}
+                            AttributeReference AttRef = (AttributeReference)tr.GetObject(idRef, OpenMode.ForRead);
+                            AttList.Add(String.Format("[{0}:{1}]", AttRef.Tag, AttRef.TextString));
                         }
                     }
                 }
             }
+            return newlist;
         }
-
-        private System.Data.DataTable dt;
-        public System.Data.DataTable DataTabel
-        {
-            get { return dt; }
-        }
-
-        public void GetBlokRefs()
-        {
-            Doc.LockDocument();
-            using (Transaction tr = acDb.TransactionManager.StartTransaction())
-            {
  
-                List<string> arrListTable = new List<string>();
-                List<string> arrListRef = new List<string>();
-                foreach (KeyValuePair<string, ObjectId> keyListBt in ListBlokTabel)
-                { 
-                    BlockTable bt = acDb.BlockTableId.GetObject(
-                        OpenMode.ForRead) as BlockTable;
-                    BlockTableRecord btr = (BlockTableRecord)tr.GetObject(
-                        bt[keyListBt.Key], OpenMode.ForRead);
-                    ObjectIdCollection objIds = btr.GetBlockReferenceIds(true, false);
-                    foreach (ObjectId id in objIds)
-                    {
-                        ListBlokReference.Add(btr.Name, id);
-                    }
-                }              
-            }
-        }
-
-        public void GetAttribuName()
-        {
-
-        }
-
-
     }
 
    

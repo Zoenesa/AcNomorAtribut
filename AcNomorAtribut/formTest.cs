@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autodesk.AutoCAD.DatabaseServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AcAp = Autodesk.AutoCAD.ApplicationServices.Application;
 
 namespace AcNomorAtribut
 {
@@ -31,9 +33,7 @@ namespace AcNomorAtribut
         }
 
         private string[] headerName = { "Attribute Kolektor", "-","Data Source"};
-        private List<FileInfo> listfile = null;
         public static List<string> atributName;
-        private KoleksiBlok classKoleksiBlok;
         private int colblock;
         private int numexpor;
         private DataBlok dtBlok;
@@ -65,18 +65,20 @@ namespace AcNomorAtribut
             get { return numexpor; }
         }
 
-        List<string> lstBt; 
-            List<string> arrList = new List<string>();
+        List<string> ListBlokTabledwg;
+        List<string> ListBlokRefsdwg;
+        List<string> ListAttr;
 
+        private TreeView tvw;
+                
         private void formTest_Load(object sender, EventArgs e)
         {
-            dtBlok = new DataBlok();
-            lstBt = new List<string>();
-            foreach (KeyValuePair<string, Autodesk.AutoCAD.DatabaseServices.ObjectId> item in dtBlok.ListBlokTabel)
-            {
-                lstBt.Add(item.Key);
-            }
+            tvw = new TreeView();
 
+            dtBlok = new DataBlok();
+            ListBlokTabledwg = dtBlok.GetParentBlokName();
+            ListBlokRefsdwg = dtBlok.GetBlokRefs();
+            ListAttr = dtBlok.AttList;
             dgListDrawings.Rows.Add(dtBlok.infoFile.Name, dtBlok.infoFile.DirectoryName);
         }
 
@@ -124,12 +126,18 @@ namespace AcNomorAtribut
                 tabControl1.SelectedTab = tabPage2;
                 dgListBlocks.Rows.Clear();
                 object[] values = new object[3];
-                foreach (string item in lstBt)
+                string[] dataKategori = { "Data Unit", "Data Kavling", "Data Point"};
+                foreach (string item in this.ListBlokTabledwg)
                 {
-                    values[0] = Convert.ToBoolean(1);
-                    values[1] = Convert.ToString(item);
-
-                    dgListBlocks.Rows.Add(values);
+                    values[0] = true;
+                    values[1] = item;
+                    values[2] = dataKategori;
+                    dgListBlocks.Rows.Add(true, item, " ");
+                }
+                for (int i = 0; i < dgListBlocks.Rows.Count; i++)
+                {
+                    DataGridViewComboBoxCell cbcell = (DataGridViewComboBoxCell)dgListBlocks.Rows[i].Cells[3];
+                    cbcell.Value = dataKategori.ToList();
                 }
                 
             }
@@ -223,6 +231,24 @@ namespace AcNomorAtribut
             {
                 rw.Cells[0].Value = false;
             }
+        }
+
+        private void buttonDaftarAtribut_Click(object sender, EventArgs e)
+        { 
+            formListAttribut frmListatt = new formListAttribut();
+            Autodesk.AutoCAD.ApplicationServices.Application.ShowModalDialog(frmListatt);
+           
+        }
+ 
+
+        private void dgListBlocks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgListBlocks.MultiSelect = false;
+            DataGridViewCheckBoxCell chkcell = (DataGridViewCheckBoxCell)dgListBlocks.CurrentRow.Cells[0];
+            dgListBlocks.BeginEdit(true);
+            bool flag = Convert.ToBoolean(chkcell.Value);
+            dgListBlocks.CurrentRow.Cells[0].Value = !flag;
+            
         }
     }
 }

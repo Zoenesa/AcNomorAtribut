@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -53,11 +53,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgListBlocks = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buttonDaftarAtribut = new System.Windows.Forms.Button();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -73,6 +70,11 @@
             this.buttonTutup = new System.Windows.Forms.Button();
             this.buttonLanjut = new System.Windows.Forms.Button();
             this.buttonKembali = new System.Windows.Forms.Button();
+            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -181,14 +183,14 @@
             this.dgListDrawings.AllowUserToAddRows = false;
             this.dgListDrawings.AllowUserToDeleteRows = false;
             this.dgListDrawings.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgListDrawings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgListDrawings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgListDrawings.ColumnHeadersHeight = 32;
             this.dgListDrawings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgListDrawings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -403,22 +405,22 @@
             this.dgListBlocks.AllowUserToAddRows = false;
             this.dgListBlocks.AllowUserToDeleteRows = false;
             this.dgListBlocks.AllowUserToResizeRows = false;
-            this.dgListBlocks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgListBlocks.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgListBlocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgListBlocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgListBlocks.ColumnHeadersHeight = 32;
             this.dgListBlocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgListBlocks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.dataGridViewTextBoxColumn1,
             this.Column5,
+            this.Column6,
             this.dataGridViewTextBoxColumn3});
             this.tableLayoutPanel1.SetColumnSpan(this.dgListBlocks, 2);
             this.dgListBlocks.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -432,62 +434,32 @@
             this.dgListBlocks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgListBlocks.Size = new System.Drawing.Size(290, 303);
             this.dgListBlocks.TabIndex = 3;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 65F;
-            this.Column4.HeaderText = "";
-            this.Column4.MinimumWidth = 45;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn1.FillWeight = 152.3477F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nama Block";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 100;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn1.ToolTipText = "Nama Block dari Drawing";
-            this.dataGridViewTextBoxColumn1.Width = 132;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "BlockReference ID";
-            this.Column5.MinimumWidth = 85;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn3.FillWeight = 200F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 45;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn3.Width = 154;
+            this.dgListBlocks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgListBlocks_CellContentClick);
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.buttonDaftarAtribut);
             this.groupBox3.Controls.Add(this.checkBox5);
             this.groupBox3.Controls.Add(this.checkBox4);
             this.groupBox3.Controls.Add(this.checkBox3);
             this.groupBox3.Controls.Add(this.checkBox2);
             this.groupBox3.Controls.Add(this.checkBox1);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(299, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(235, 207);
+            this.groupBox3.Size = new System.Drawing.Size(235, 241);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Kategori Attribut";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(103, 188);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.TabIndex = 6;
             // 
             // buttonDaftarAtribut
             // 
@@ -497,6 +469,7 @@
             this.buttonDaftarAtribut.TabIndex = 5;
             this.buttonDaftarAtribut.Text = ". . .";
             this.buttonDaftarAtribut.UseVisualStyleBackColor = true;
+            this.buttonDaftarAtribut.Click += new System.EventHandler(this.buttonDaftarAtribut_Click);
             // 
             // checkBox5
             // 
@@ -579,7 +552,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(535, 436);
+            this.tabPage3.Size = new System.Drawing.Size(543, 389);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Data Tabel";
             this.tabPage3.ToolTipText = "Koleksi dari Attribut pada Drawing";
@@ -600,7 +573,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(535, 436);
+            this.tabPage4.Size = new System.Drawing.Size(543, 389);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Hitung Analisa";
             this.tabPage4.ToolTipText = "Hitung Analisa Persentasi";
@@ -643,6 +616,53 @@
             this.buttonKembali.Text = "&Kembali";
             this.buttonKembali.UseVisualStyleBackColor = true;
             this.buttonKembali.Click += new System.EventHandler(this.buttonKembali_Click);
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 65F;
+            this.Column4.HeaderText = "";
+            this.Column4.MinimumWidth = 45;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 45;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn1.FillWeight = 152.3477F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nama Block";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 100;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.ToolTipText = "Nama Block dari Drawing";
+            this.dataGridViewTextBoxColumn1.Width = 132;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "BlockReference ID";
+            this.Column5.MinimumWidth = 85;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            this.Column5.Width = 85;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Data Kategori";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn3.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 45;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn3.Width = 154;
             // 
             // formTest
             // 
@@ -697,10 +717,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dgListBlocks;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buttonDaftarAtribut;
         private System.Windows.Forms.CheckBox checkBox5;
@@ -717,5 +733,11 @@
         private System.Windows.Forms.Button buttonTutup;
         private System.Windows.Forms.Button buttonLanjut;
         private System.Windows.Forms.Button buttonKembali;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

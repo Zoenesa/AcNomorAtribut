@@ -110,7 +110,7 @@ namespace BlockTreeView
             { return koleksi; }
         }
 
-        private void FillParentNodes(TreeView tv)
+        public void FillParentNodes(TreeView tv)
         {
             doc = AcadApp.DocumentManager.MdiActiveDocument;
             db = doc.Database;

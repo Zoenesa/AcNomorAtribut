@@ -19,13 +19,13 @@ namespace AcNomorAtribut
 
         private void formListAttribut_Load(object sender, EventArgs e)
         {
-            if (mainform.atributName.Count > 0)
-            {
-                foreach (string item in mainform.atributName)
-                {
-                    chListAtr.Items.Add(item.ToString(), true);
-                }
-            }
+            //if (mainform.atributName.Count > 0)
+            //{
+            //    foreach (string item in mainform.atributName)
+            //    {
+            //        chListAtr.Items.Add(item.ToString(), true);
+            //    }
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
