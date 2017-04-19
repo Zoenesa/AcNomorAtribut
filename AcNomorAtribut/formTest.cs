@@ -1,4 +1,5 @@
-﻿using Autodesk.AutoCAD.DatabaseServices;
+﻿using Autodesk.AutoCAD.ApplicationServices;
+using Autodesk.AutoCAD.DatabaseServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +31,7 @@ namespace AcNomorAtribut
             buttonHapus.Enabled = false;
             colblock = 0; labelObjCount.Text = colblock.ToString();
             tabControl1.Enabled = true;
+            checkBox5.CheckState = CheckState.Checked;
         }
 
         private string[] headerName = { "Attribute Kolektor", "-","Data Source"};
@@ -70,7 +72,59 @@ namespace AcNomorAtribut
         List<string> ListAttr;
 
         private TreeView tvw;
-                
+
+        private static List<string> selectedatributrefs;
+
+        public static List<string> ListSelectedAttRefs
+        {
+            get
+            { return selectedatributrefs; }
+        }
+
+        public static List<string> GetBlockRefSelected(string brefName)
+        {
+            List<string> newList = new List<string>();
+            Document doc = AcAp.DocumentManager.MdiActiveDocument;
+            Database db = doc.Database;
+            using (Transaction tr = db.TransactionManager.StartTransaction())
+            {
+                BlockTable bt = db.BlockTableId.GetObject(OpenMode.ForRead) as BlockTable;
+                foreach (ObjectId objId in bt)
+                {
+                    BlockTableRecord btr = (BlockTableRecord)tr.GetObject(bt[brefName], OpenMode.ForRead);
+                    if (btr.IsAnonymous)
+                    {
+                        continue;
+                    }
+                    if (btr.GetBlockReferenceIds(true, false).Count > 0)
+                    {
+                        if (btr.HasAttributeDefinitions)
+                        {
+                            ObjectIdCollection objIds = btr.GetBlockReferenceIds(true, false);
+                            foreach (ObjectId brefId in objIds)
+                            {
+                                BlockReference bRef = (BlockReference)tr.GetObject(brefId, OpenMode.ForRead);
+                                Autodesk.AutoCAD.DatabaseServices.AttributeCollection atRefColl = bRef.AttributeCollection;
+                                foreach (ObjectId atId in atRefColl)
+                                {
+                                    AttributeReference atdef = (AttributeReference)tr.GetObject(atId, OpenMode.ForRead);
+                                    newList.Add(atdef.Tag); 
+                                } 
+                            }
+                        }
+                    }
+                }
+            }
+            return newList;
+        }
+
+        public List<string> GetDataAtributeSelected()
+        {
+            List<string> newlist = new List<string>();
+
+            return newlist;
+        }
+
         private void formTest_Load(object sender, EventArgs e)
         {
             tvw = new TreeView();
@@ -126,20 +180,19 @@ namespace AcNomorAtribut
                 tabControl1.SelectedTab = tabPage2;
                 dgListBlocks.Rows.Clear();
                 object[] values = new object[3];
-                string[] dataKategori = { "Data Unit", "Data Kavling", "Data Point"};
+                string[] dataKategori = { "Data Unit", "Data Kavling", "Data Point"};                
+                ComboBox cbCat = new ComboBox();
+                cbCat.Items.AddRange(dataKategori);
                 foreach (string item in this.ListBlokTabledwg)
-                {
+                {                    
                     values[0] = true;
                     values[1] = item;
                     values[2] = dataKategori;
                     dgListBlocks.Rows.Add(true, item, " ");
+                     
                 }
-                for (int i = 0; i < dgListBlocks.Rows.Count; i++)
-                {
-                    DataGridViewComboBoxCell cbcell = (DataGridViewComboBoxCell)dgListBlocks.Rows[i].Cells[3];
-                    cbcell.Value = dataKategori.ToList();
-                }
-                
+                    
+  
             }
             else if (tabControl1.SelectedTab == tabPage2)
             {
@@ -237,7 +290,6 @@ namespace AcNomorAtribut
         { 
             formListAttribut frmListatt = new formListAttribut();
             Autodesk.AutoCAD.ApplicationServices.Application.ShowModalDialog(frmListatt);
-           
         }
  
 
@@ -249,6 +301,24 @@ namespace AcNomorAtribut
             bool flag = Convert.ToBoolean(chkcell.Value);
             dgListBlocks.CurrentRow.Cells[0].Value = !flag;
             
+        }
+
+        public static List<string> BRefNamesSelected;
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox5.Checked)
+            {
+                BRefNamesSelected = new List<string>();
+                foreach (DataGridViewRow drow in dgListBlocks.Rows)
+                {
+                    bool flag = (bool)drow.Cells[0].Value;
+                    if (flag == true)
+                    {
+                        BRefNamesSelected.Add(Convert.ToString(drow.Cells[1].Value));
+                    }
+                }
+            }
         }
     }
 }

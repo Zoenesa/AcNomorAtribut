@@ -57,10 +57,13 @@ namespace AcNomorAtribut
                     {
                         continue;
                     }
-                    if (btr.HasAttributeDefinitions)
-                    {                        
-                        newlist.Add(btr.Name);
-                        dataParentBlok.Add(btr.Name);
+                    if (btr.GetBlockReferenceIds(true, false).Count > 0)
+                    {
+                        if (btr.HasAttributeDefinitions)
+                        {
+                            newlist.Add(btr.Name);
+                            dataParentBlok.Add(btr.Name);
+                        }
                     }
                 }
             }
@@ -68,6 +71,7 @@ namespace AcNomorAtribut
         }
 
         private List<string> dataParentBlok;
+
         public List<string> AttList;
 
         public List<string> GetBlokRefs()

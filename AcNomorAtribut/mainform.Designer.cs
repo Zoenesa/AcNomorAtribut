@@ -51,6 +51,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgListBlocks = new System.Windows.Forms.DataGridView();
+            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonDaftarAtribut = new System.Windows.Forms.Button();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
@@ -61,7 +65,10 @@
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnSelAll = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabctlTabels = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dgTabel = new System.Windows.Forms.DataGridView();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
@@ -69,10 +76,6 @@
             this.buttonLanjut = new System.Windows.Forms.Button();
             this.buttonTutup = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -84,6 +87,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgListBlocks)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabctlTabels.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTabel)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
@@ -400,6 +405,45 @@
             this.dgListBlocks.TabIndex = 3;
             this.dgListBlocks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgListBlocks_CellContentClick);
             // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 65F;
+            this.Column4.HeaderText = "";
+            this.Column4.MinimumWidth = 45;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn1.FillWeight = 152.3477F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nama Block";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 100;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.ToolTipText = "Nama Block dari Drawing";
+            this.dataGridViewTextBoxColumn1.Width = 132;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "BlockReference ID";
+            this.Column5.MinimumWidth = 85;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn3.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 45;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn3.Width = 154;
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -504,7 +548,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage3.Controls.Add(this.dgTabel);
+            this.tabPage3.Controls.Add(this.tabctlTabels);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -513,15 +557,48 @@
             this.tabPage3.Text = "Data Tabel";
             this.tabPage3.ToolTipText = "Koleksi dari Attribut pada Drawing";
             // 
+            // tabctlTabels
+            // 
+            this.tabctlTabels.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabctlTabels.Controls.Add(this.tabPage5);
+            this.tabctlTabels.Controls.Add(this.tabPage6);
+            this.tabctlTabels.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabctlTabels.Location = new System.Drawing.Point(3, 3);
+            this.tabctlTabels.Name = "tabctlTabels";
+            this.tabctlTabels.SelectedIndex = 0;
+            this.tabctlTabels.Size = new System.Drawing.Size(529, 430);
+            this.tabctlTabels.TabIndex = 4;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage5.Controls.Add(this.dgTabel);
+            this.tabPage5.Location = new System.Drawing.Point(4, 4);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(521, 402);
+            this.tabPage5.TabIndex = 0;
+            this.tabPage5.Text = "Data Unit";
+            // 
             // dgTabel
             // 
             this.dgTabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgTabel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgTabel.Location = new System.Drawing.Point(7, 7);
+            this.dgTabel.Location = new System.Drawing.Point(6, 6);
             this.dgTabel.Name = "dgTabel";
-            this.dgTabel.Size = new System.Drawing.Size(522, 374);
+            this.dgTabel.Size = new System.Drawing.Size(509, 390);
             this.dgTabel.TabIndex = 3;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage6.Location = new System.Drawing.Point(4, 4);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(521, 402);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "Data Luasan";
             // 
             // tabPage4
             // 
@@ -605,45 +682,6 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(549, 502);
             this.tableLayoutPanel4.TabIndex = 10;
             // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 65F;
-            this.Column4.HeaderText = "";
-            this.Column4.MinimumWidth = 45;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn1.FillWeight = 152.3477F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nama Block";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 100;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn1.ToolTipText = "Nama Block dari Drawing";
-            this.dataGridViewTextBoxColumn1.Width = 132;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "BlockReference ID";
-            this.Column5.MinimumWidth = 85;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn3.FillWeight = 200F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 45;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn3.Width = 154;
-            // 
             // mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -672,6 +710,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.tabctlTabels.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgTabel)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -722,5 +762,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.TabControl tabctlTabels;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
     }
 }

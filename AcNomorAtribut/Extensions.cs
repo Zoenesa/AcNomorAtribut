@@ -229,7 +229,7 @@ namespace AcNomorAtribut
                         tbl.Cells[i + 2, j].Value = item));
             return tbl;
         }
-        
+
         //public static Dictionary<string, DBText> GetAttributesToDictionaryKeyByTag(this BlockReference blockref)
         //{
         //    return blockref.GetAttributes().ToDictionary(a => GetTag(a), StringComparer.OrdinalIgnoreCase);

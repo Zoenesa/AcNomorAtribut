@@ -25,7 +25,16 @@ namespace AcNomorAtribut
             //    {
             //        chListAtr.Items.Add(item.ToString(), true);
             //    }
-            //}
+            //} 
+            List<string> atList = new List<string>();
+            foreach (string item in formTest.BRefNamesSelected)
+            {
+                atList = (formTest.GetBlockRefSelected(item));
+            }
+            foreach (string item in atList)
+            {
+                chListAtr.Items.Add(item.ToString(), true);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
