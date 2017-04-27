@@ -44,9 +44,9 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.buttonInsert, 2);
             this.buttonInsert.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonInsert.Location = new System.Drawing.Point(3, 153);
+            this.buttonInsert.Location = new System.Drawing.Point(3, 162);
             this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Size = new System.Drawing.Size(170, 26);
+            this.buttonInsert.Size = new System.Drawing.Size(168, 26);
             this.buttonInsert.TabIndex = 0;
             this.buttonInsert.Text = "Insert";
             this.buttonInsert.UseVisualStyleBackColor = true;
@@ -56,9 +56,9 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.buttonCancel, 2);
             this.buttonCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonCancel.Location = new System.Drawing.Point(179, 153);
+            this.buttonCancel.Location = new System.Drawing.Point(177, 162);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(175, 26);
+            this.buttonCancel.Size = new System.Drawing.Size(173, 26);
             this.buttonCancel.TabIndex = 0;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -89,52 +89,52 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(357, 182);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(353, 191);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // textBox1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 3);
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(109, 5);
+            this.textBox1.Location = new System.Drawing.Point(108, 5);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 23);
+            this.textBox1.Size = new System.Drawing.Size(242, 23);
             this.textBox1.TabIndex = 2;
             // 
             // textBox2
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.textBox2, 3);
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(109, 69);
+            this.textBox2.Location = new System.Drawing.Point(108, 69);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(245, 23);
+            this.textBox2.Size = new System.Drawing.Size(242, 23);
             this.textBox2.TabIndex = 2;
             // 
             // textBox3
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.textBox3, 2);
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(109, 37);
+            this.textBox3.Location = new System.Drawing.Point(108, 37);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(104, 23);
+            this.textBox3.Size = new System.Drawing.Size(102, 23);
             this.textBox3.TabIndex = 2;
             // 
             // textBox4
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.textBox4, 3);
             this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(109, 101);
+            this.textBox4.Location = new System.Drawing.Point(108, 101);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(245, 23);
+            this.textBox4.Size = new System.Drawing.Size(242, 23);
             this.textBox4.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(219, 36);
+            this.button1.Location = new System.Drawing.Point(216, 36);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 25);
@@ -148,9 +148,9 @@
             this.checkBox1.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.checkBox1, 2);
             this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox1.Location = new System.Drawing.Point(179, 131);
+            this.checkBox1.Location = new System.Drawing.Point(177, 131);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(175, 16);
+            this.checkBox1.Size = new System.Drawing.Size(173, 25);
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Use Parent Rotation";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 182);
+            this.ClientSize = new System.Drawing.Size(353, 191);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -170,7 +170,7 @@
             this.Name = "formUserInputAttribut";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "formUserInputAttribut";
+            this.Text = "Input Attribute Value";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

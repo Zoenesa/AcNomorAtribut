@@ -167,7 +167,7 @@ namespace AcNomorAtribut
                         AttributeReference atRef = (AttributeReference)tr.GetObject(id, OpenMode.ForRead);
                         if (dic.ContainsKey(atRef.Tag.ToUpper()))
                         {
-                            string[] info = dic[atRef.Tag.ToUpper()].Split('|');
+                            string[] info = dic[atRef.Tag.ToUpper()].Split(new string[] {"|", "~"}, StringSplitOptions.None);
                             ed.WriteMessage(
                                 "\nAttribute \"{0}\" -> Prompt: {1}; Default Value: {2}", atRef.Tag, info[0], info[2]);
                         }
@@ -199,7 +199,7 @@ namespace AcNomorAtribut
                 {
                     if (!dic.ContainsKey(atdef.Tag.ToUpper()))
                     {
-                        dic.Add(atdef.Tag.ToUpper(), atdef.Prompt + "|" + atdef.TextString);
+                        dic.Add(atdef.Tag.ToUpper(), atdef.Prompt + "~" + atdef.TextString);
                     }
                 }
             }
@@ -224,10 +224,12 @@ namespace AcNomorAtribut
                     if (listTags.Contains(attDef.Tag.ToUpper()))
                     {
                         ListStringComparer lsc = new ListStringComparer();
-                        int found = listTags.BinarySearch(0, 4, attDef.Tag.ToUpper(), lsc);
-                        if (found >= 0)
+                        int found = listTags.BinarySearch(attDef.Tag.ToUpper(), lsc);
+                        int index = listTags.FindIndex(s => s.Contains(attDef.Tag.ToUpper()));
+                        string strtemp = listValues[index];
+                        if (index >= 0)
                         {
-                            attRef.TextString = listValues[found];
+                            attRef.TextString = listValues[index];
                             attRef.AdjustAlignment(db);
                         }
                     }
@@ -294,7 +296,7 @@ namespace AcNomorAtribut
                     Dictionary<string, string> dic = GetAttributDef(bref.BlockTableRecord, tr);
                     foreach (KeyValuePair<string, string> item in dic)
                     {
-                        ListTag.Add(item.Key.ToUpper());
+                        ListTag.Add(item.Key.ToUpper().ToString());
                         // string[] info = item.Value.Split('|');
                     }
                     formUserInputAttribut frmInput = new formUserInputAttribut();
@@ -313,21 +315,8 @@ namespace AcNomorAtribut
                     btr.AppendEntity(bref);
                     tr.AddNewlyCreatedDBObject(bref, true);
                     // set attributes to desired values
-
-
-                    ApplyAttibutes(db, tr, bref, ListTag, ListString);
-                    //    ApplyAttibutes(db, tr, bref, new List<string>(new string[] {
-                    //    "TAG_NO",
-                    //    "TAG_NUMBLOK",
-                    //    "TAG_AT_AREA",
-                    //    "TAG_TIPE"
-                    //}), new List<string>(new string[] {
-                    //    "Value #1",
-                    //    "Value #2",
-                    //    "Value #3",
-                    //    "Value #4"
-                    //}));
-
+                     
+                    ApplyAttibutes(db, tr, bref, ListTag, ListString); 
 
                     bref.RecordGraphicsModified(true);
                     // to force updating a block reference

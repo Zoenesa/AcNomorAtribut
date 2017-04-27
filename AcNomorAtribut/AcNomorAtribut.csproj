@@ -31,6 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BlockAttribute.cs" />
+    <Compile Include="BlockAutoNumber.cs" />
+    <Compile Include="classEditorHelper.cs" />
     <Compile Include="Commands.cs" />
     <Compile Include="DataBlok.cs" />
     <Compile Include="Extensions.cs" />

@@ -439,5 +439,13 @@ namespace AcNomorAtribut
             formTest ftest = new formTest();
             AcAp.ShowModalDialog(ftest);
         }
+
+        [CommandMethod("atnum")]
+        public void showFormAutoNumber()
+        {
+            formIncrementBlock frmauto = new formIncrementBlock();
+            AcAp.ShowModalDialog(frmauto);
+        }
+
     }
 }
