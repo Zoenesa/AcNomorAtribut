@@ -251,3 +251,8 @@ paket-files/
 .idea/
 *.sln.iml
 AcNomorAtribut.csproj
+*.dwl
+*.dwl2
+/AcNomorAtribut/classEditorHelper.cs
+/AcNomorAtribut/formIncrementBlock.cs
+/AcNomorAtribut/formIncrementBlock.cs

@@ -30,70 +30,82 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BlockAttribute.cs" />
-    <Compile Include="BlockAutoNumber.cs" />
+    <Compile Include="AutoNumberV2\AcadExtensions.cs" />
+    <Compile Include="BlockV1\BlockAttribute.cs" />
+    <Compile Include="BlockV1\BlockAutoNumber.cs" />
+    <Compile Include="AutoNumberV2\BlockExtensions.cs" />
     <Compile Include="classEditorHelper.cs" />
     <Compile Include="Commands.cs" />
-    <Compile Include="DataBlok.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="formIncrementBlock.cs">
+    <Compile Include="BlockV1\DataBlok.cs" />
+    <Compile Include="BlockV1\Extensions.cs" />
+    <Compile Include="BlockV1\formIncrementBlock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formIncrementBlock.Designer.cs">
+    <Compile Include="BlockV1\formIncrementBlock.Designer.cs">
       <DependentUpon>formIncrementBlock.cs</DependentUpon>
     </Compile>
-    <Compile Include="formListAttribut.cs">
+    <Compile Include="AutoNumberV2\formIncrementV2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formListAttribut.Designer.cs">
+    <Compile Include="AutoNumberV2\formIncrementV2.Designer.cs">
+      <DependentUpon>formIncrementV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BlockV1\formListAttribut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlockV1\formListAttribut.Designer.cs">
       <DependentUpon>formListAttribut.cs</DependentUpon>
     </Compile>
-    <Compile Include="formTest.cs">
+    <Compile Include="BlockV1\formTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formTest.Designer.cs">
+    <Compile Include="BlockV1\formTest.Designer.cs">
       <DependentUpon>formTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="formUserInputAttribut.cs">
+    <Compile Include="BlockV1\formUserInputAttribut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formUserInputAttribut.Designer.cs">
+    <Compile Include="BlockV1\formUserInputAttribut.Designer.cs">
       <DependentUpon>formUserInputAttribut.cs</DependentUpon>
     </Compile>
-    <Compile Include="KoleksiBlok.cs" />
-    <Compile Include="LateBinding.cs" />
-    <Compile Include="mainform.cs">
+    <Compile Include="BlockV1\KoleksiBlok.cs" />
+    <Compile Include="BlockV1\LateBinding.cs" />
+    <Compile Include="BlockV1\mainform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainform.Designer.cs">
+    <Compile Include="BlockV1\mainform.Designer.cs">
       <DependentUpon>mainform.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TraceArea.cs" />
-    <Compile Include="TreeViewForm.cs">
+    <Compile Include="TextInfo.cs" />
+    <Compile Include="BlockV1\TraceArea.cs" />
+    <Compile Include="BlockV1\TreeViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TreeViewForm.designer.cs">
+    <Compile Include="BlockV1\TreeViewForm.designer.cs">
       <DependentUpon>TreeViewForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="formIncrementBlock.resx">
+    <EmbeddedResource Include="BlockV1\formIncrementBlock.resx">
       <DependentUpon>formIncrementBlock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formListAttribut.resx">
+    <EmbeddedResource Include="AutoNumberV2\formIncrementV2.resx">
+      <DependentUpon>formIncrementV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlockV1\formListAttribut.resx">
       <DependentUpon>formListAttribut.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formTest.resx">
+    <EmbeddedResource Include="BlockV1\formTest.resx">
       <DependentUpon>formTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formUserInputAttribut.resx">
+    <EmbeddedResource Include="BlockV1\formUserInputAttribut.resx">
       <DependentUpon>formUserInputAttribut.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mainform.resx">
+    <EmbeddedResource Include="BlockV1\mainform.resx">
       <DependentUpon>mainform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TreeViewForm.resx">
+    <EmbeddedResource Include="BlockV1\TreeViewForm.resx">
       <DependentUpon>TreeViewForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
