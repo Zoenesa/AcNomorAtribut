@@ -15,7 +15,7 @@ namespace AcNomorAtribut
     public class Commands
     {
         static int _index = 1;
-
+       
         private System.Data.DataTable blockdt; 
 
         public System.Data.DataTable blokRefTabel
@@ -447,5 +447,8 @@ namespace AcNomorAtribut
             AcAp.ShowModalDialog(frmauto);
         }
 
+
+
+        
     }
 }
