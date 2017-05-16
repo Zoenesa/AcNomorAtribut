@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AutoNumberV2\AcadExtensions.cs" />
+    <Compile Include="AutoNumberV2\BlockJig.cs" />
     <Compile Include="AutoNumberV2\cmdAutoIncrement.cs" />
     <Compile Include="BlockV1\BlockAttribute.cs" />
     <Compile Include="BlockV1\BlockAutoNumber.cs" />

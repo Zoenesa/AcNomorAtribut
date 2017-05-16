@@ -37,10 +37,10 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.grupParameter = new System.Windows.Forms.GroupBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.txtSuffix = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPrefix = new System.Windows.Forms.TextBox();
+            this.txtValue = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,71 +48,71 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnSelBlk = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbxBlock = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbxAttrib = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.txtBlkRot = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.txtBlkScale = new System.Windows.Forms.TextBox();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.txtBlkRot = new System.Windows.Forms.TextBox();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbxAttrib = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxBlock = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.btnSelBlk = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
             this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.cbxSelTag = new System.Windows.Forms.ComboBox();
             this.cbxSelBlk = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cbxSelTag = new System.Windows.Forms.ComboBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtTextHeight = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtTextHeight = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.grupTipeValue.SuspendLayout();
             this.grupParameter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.SuspendLayout();
@@ -202,10 +202,10 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.grupParameter, 2);
             this.grupParameter.Controls.Add(this.numericUpDown1);
-            this.grupParameter.Controls.Add(this.textBox3);
+            this.grupParameter.Controls.Add(this.txtSuffix);
             this.grupParameter.Controls.Add(this.textBox4);
-            this.grupParameter.Controls.Add(this.textBox2);
-            this.grupParameter.Controls.Add(this.textBox1);
+            this.grupParameter.Controls.Add(this.txtPrefix);
+            this.grupParameter.Controls.Add(this.txtValue);
             this.grupParameter.Controls.Add(this.label5);
             this.grupParameter.Controls.Add(this.label4);
             this.grupParameter.Controls.Add(this.label3);
@@ -227,38 +227,37 @@
             this.numericUpDown1.TabIndex = 2;
             this.toolTip1.SetToolTip(this.numericUpDown1, "Penambahan");
             // 
-            // textBox3
+            // txtSuffix
             // 
-            this.textBox3.Location = new System.Drawing.Point(71, 149);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(81, 20);
-            this.textBox3.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.textBox3, "Penambahan Pada Akhiran Parameter");
+            this.txtSuffix.Location = new System.Drawing.Point(71, 149);
+            this.txtSuffix.Name = "txtSuffix";
+            this.txtSuffix.Size = new System.Drawing.Size(81, 20);
+            this.txtSuffix.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtSuffix, "Penambahan Pada Akhiran Parameter");
             // 
-            // textBox2
+            // textBox4
             // 
-            this.textBox2.Location = new System.Drawing.Point(71, 120);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(81, 20);
-            this.textBox2.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.textBox2, "Penambahan Pada Awal Parameter");
+            this.textBox4.Location = new System.Drawing.Point(71, 89);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(40, 20);
+            this.textBox4.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.textBox4, "Separator Objek");
             // 
-            // textBox1
+            // txtPrefix
             // 
-            this.textBox1.Location = new System.Drawing.Point(71, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(81, 20);
-            this.textBox1.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.textBox1, "Nilai");
+            this.txtPrefix.Location = new System.Drawing.Point(71, 120);
+            this.txtPrefix.Name = "txtPrefix";
+            this.txtPrefix.Size = new System.Drawing.Size(81, 20);
+            this.txtPrefix.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtPrefix, "Penambahan Pada Awal Parameter");
             // 
-            // label7
+            // txtValue
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 52);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(178, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Data Block Reference pada Model :";
+            this.txtValue.Location = new System.Drawing.Point(71, 23);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.Size = new System.Drawing.Size(81, 20);
+            this.txtValue.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtValue, "Nilai");
             // 
             // label5
             // 
@@ -333,178 +332,6 @@
             this.tabPage1.Text = "Pilihan Objek Attribute";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btnSelBlk
-            // 
-            this.btnSelBlk.Location = new System.Drawing.Point(217, 67);
-            this.btnSelBlk.Name = "btnSelBlk";
-            this.btnSelBlk.Size = new System.Drawing.Size(23, 23);
-            this.btnSelBlk.TabIndex = 0;
-            this.btnSelBlk.Text = "button1";
-            this.btnSelBlk.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.groupBox9);
-            this.tabPage2.Controls.Add(this.groupBox8);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(351, 345);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Pilihan pada Model";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(71, 89);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(40, 20);
-            this.textBox4.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.textBox4, "Separator Objek");
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.groupBox4);
-            this.tabPage3.Controls.Add(this.groupBox3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(351, 345);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Pilihan Pengguna";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Location = new System.Drawing.Point(19, 19);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(192, 23);
-            this.btnBrowse.TabIndex = 0;
-            this.btnBrowse.Text = "Browse Eksternal Block";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.cbxBlock);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.btnBrowse);
-            this.groupBox1.Controls.Add(this.btnSelBlk);
-            this.groupBox1.Location = new System.Drawing.Point(7, 8);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(338, 101);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pilih Objek";
-            // 
-            // cbxBlock
-            // 
-            this.cbxBlock.FormattingEnabled = true;
-            this.cbxBlock.Location = new System.Drawing.Point(19, 68);
-            this.cbxBlock.Name = "cbxBlock";
-            this.cbxBlock.Size = new System.Drawing.Size(192, 21);
-            this.cbxBlock.TabIndex = 1;
-            this.cbxBlock.SelectedIndexChanged += new System.EventHandler(this.cbxBlock_SelectedIndexChanged);
-            this.cbxBlock.Validating += new System.ComponentModel.CancelEventHandler(this.cbxBlock_Validating);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.cbxAttrib);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(7, 118);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(338, 74);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Pilih Attribute";
-            // 
-            // cbxAttrib
-            // 
-            this.cbxAttrib.FormattingEnabled = true;
-            this.cbxAttrib.Location = new System.Drawing.Point(19, 36);
-            this.cbxAttrib.Name = "cbxAttrib";
-            this.cbxAttrib.Size = new System.Drawing.Size(221, 21);
-            this.cbxAttrib.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Tag Attribute :";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.radioButton3);
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Controls.Add(this.comboBox3);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Location = new System.Drawing.Point(6, 8);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(339, 101);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Pilih Objek";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(19, 68);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(192, 21);
-            this.comboBox3.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 52);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Block pada Model :";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(217, 67);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(23, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(142, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(46, 17);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Text";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(19, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(105, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Block Reference";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Location = new System.Drawing.Point(6, 115);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(339, 145);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Data Attribute Reference";
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.groupBox7);
@@ -515,49 +342,6 @@
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Properti";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.txtBlkRot);
-            this.groupBox6.Controls.Add(this.radioButton6);
-            this.groupBox6.Controls.Add(this.radioButton5);
-            this.groupBox6.Location = new System.Drawing.Point(11, 19);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(321, 45);
-            this.groupBox6.TabIndex = 0;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Rotation";
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(8, 19);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(88, 17);
-            this.radioButton5.TabIndex = 0;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Sesuai Objek";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(163, 19);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(90, 17);
-            this.radioButton6.TabIndex = 0;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "User Rotation";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // txtBlkRot
-            // 
-            this.txtBlkRot.Location = new System.Drawing.Point(254, 17);
-            this.txtBlkRot.MaxLength = 5;
-            this.txtBlkRot.Name = "txtBlkRot";
-            this.txtBlkRot.Size = new System.Drawing.Size(46, 20);
-            this.txtBlkRot.TabIndex = 1;
-            this.txtBlkRot.Text = "0";
             // 
             // groupBox7
             // 
@@ -602,6 +386,184 @@
             this.radioButton8.Text = "Sesuai Objek";
             this.radioButton8.UseVisualStyleBackColor = true;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.txtBlkRot);
+            this.groupBox6.Controls.Add(this.radioButton6);
+            this.groupBox6.Controls.Add(this.radioButton5);
+            this.groupBox6.Location = new System.Drawing.Point(11, 19);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(321, 45);
+            this.groupBox6.TabIndex = 0;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Rotation";
+            // 
+            // txtBlkRot
+            // 
+            this.txtBlkRot.Location = new System.Drawing.Point(254, 17);
+            this.txtBlkRot.MaxLength = 5;
+            this.txtBlkRot.Name = "txtBlkRot";
+            this.txtBlkRot.Size = new System.Drawing.Size(46, 20);
+            this.txtBlkRot.TabIndex = 1;
+            this.txtBlkRot.Text = "0";
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(163, 19);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(90, 17);
+            this.radioButton6.TabIndex = 0;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "User Rotation";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(8, 19);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(88, 17);
+            this.radioButton5.TabIndex = 0;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Sesuai Objek";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cbxAttrib);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Location = new System.Drawing.Point(7, 118);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(338, 74);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pilih Attribute";
+            // 
+            // cbxAttrib
+            // 
+            this.cbxAttrib.FormattingEnabled = true;
+            this.cbxAttrib.Location = new System.Drawing.Point(19, 36);
+            this.cbxAttrib.Name = "cbxAttrib";
+            this.cbxAttrib.Size = new System.Drawing.Size(221, 21);
+            this.cbxAttrib.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Tag Attribute :";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbxBlock);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.btnBrowse);
+            this.groupBox1.Controls.Add(this.btnSelBlk);
+            this.groupBox1.Location = new System.Drawing.Point(7, 8);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(338, 101);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pilih Objek";
+            // 
+            // cbxBlock
+            // 
+            this.cbxBlock.FormattingEnabled = true;
+            this.cbxBlock.Location = new System.Drawing.Point(19, 68);
+            this.cbxBlock.Name = "cbxBlock";
+            this.cbxBlock.Size = new System.Drawing.Size(192, 21);
+            this.cbxBlock.TabIndex = 1;
+            this.cbxBlock.SelectedIndexChanged += new System.EventHandler(this.cbxBlock_SelectedIndexChanged);
+            this.cbxBlock.Validating += new System.ComponentModel.CancelEventHandler(this.cbxBlock_Validating);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(178, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Data Block Reference pada Model :";
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(19, 19);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(192, 23);
+            this.btnBrowse.TabIndex = 0;
+            this.btnBrowse.Text = "Browse Eksternal Block";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            // 
+            // btnSelBlk
+            // 
+            this.btnSelBlk.Location = new System.Drawing.Point(217, 67);
+            this.btnSelBlk.Name = "btnSelBlk";
+            this.btnSelBlk.Size = new System.Drawing.Size(23, 23);
+            this.btnSelBlk.TabIndex = 0;
+            this.btnSelBlk.Text = "button1";
+            this.btnSelBlk.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox9);
+            this.tabPage2.Controls.Add(this.groupBox8);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(351, 345);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Pilihan pada Model";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.radioButton13);
+            this.groupBox9.Controls.Add(this.radioButton12);
+            this.groupBox9.Controls.Add(this.radioButton11);
+            this.groupBox9.Location = new System.Drawing.Point(6, 182);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(339, 129);
+            this.groupBox9.TabIndex = 4;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Action";
+            // 
+            // radioButton13
+            // 
+            this.radioButton13.AutoSize = true;
+            this.radioButton13.Location = new System.Drawing.Point(19, 86);
+            this.radioButton13.Name = "radioButton13";
+            this.radioButton13.Size = new System.Drawing.Size(88, 17);
+            this.radioButton13.TabIndex = 2;
+            this.radioButton13.TabStop = true;
+            this.radioButton13.Text = "Replace Nilai";
+            this.radioButton13.UseVisualStyleBackColor = true;
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Location = new System.Drawing.Point(19, 57);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(60, 17);
+            this.radioButton12.TabIndex = 2;
+            this.radioButton12.TabStop = true;
+            this.radioButton12.Text = "+ Suffix";
+            this.radioButton12.UseVisualStyleBackColor = true;
+            // 
+            // radioButton11
+            // 
+            this.radioButton11.AutoSize = true;
+            this.radioButton11.Location = new System.Drawing.Point(19, 28);
+            this.radioButton11.Name = "radioButton11";
+            this.radioButton11.Size = new System.Drawing.Size(60, 17);
+            this.radioButton11.TabIndex = 2;
+            this.radioButton11.TabStop = true;
+            this.radioButton11.Text = "+ Prefix";
+            this.radioButton11.UseVisualStyleBackColor = true;
+            // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.radioButton9);
@@ -640,6 +602,15 @@
             this.radioButton10.Text = "Text";
             this.radioButton10.UseVisualStyleBackColor = true;
             // 
+            // cbxSelTag
+            // 
+            this.cbxSelTag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSelTag.FormattingEnabled = true;
+            this.cbxSelTag.Location = new System.Drawing.Point(19, 112);
+            this.cbxSelTag.Name = "cbxSelTag";
+            this.cbxSelTag.Size = new System.Drawing.Size(188, 21);
+            this.cbxSelTag.TabIndex = 1;
+            // 
             // cbxSelBlk
             // 
             this.cbxSelBlk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -648,6 +619,15 @@
             this.cbxSelBlk.Name = "cbxSelBlk";
             this.cbxSelBlk.Size = new System.Drawing.Size(258, 21);
             this.cbxSelBlk.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 96);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(127, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Attribute Reference Tag :";
             // 
             // label10
             // 
@@ -667,68 +647,88 @@
             this.button3.Text = "button1";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // label11
+            // tabPage3
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 96);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(127, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Attribute Reference Tag :";
+            this.tabPage3.Controls.Add(this.groupBox4);
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(351, 345);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Pilihan Pengguna";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // cbxSelTag
+            // groupBox4
             // 
-            this.cbxSelTag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxSelTag.FormattingEnabled = true;
-            this.cbxSelTag.Location = new System.Drawing.Point(19, 112);
-            this.cbxSelTag.Name = "cbxSelTag";
-            this.cbxSelTag.Size = new System.Drawing.Size(188, 21);
-            this.cbxSelTag.TabIndex = 1;
+            this.groupBox4.Location = new System.Drawing.Point(6, 115);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(339, 145);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Data Attribute Reference";
             // 
-            // groupBox9
+            // groupBox3
             // 
-            this.groupBox9.Controls.Add(this.radioButton13);
-            this.groupBox9.Controls.Add(this.radioButton12);
-            this.groupBox9.Controls.Add(this.radioButton11);
-            this.groupBox9.Location = new System.Drawing.Point(6, 182);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(339, 129);
-            this.groupBox9.TabIndex = 4;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Action";
+            this.groupBox3.Controls.Add(this.radioButton3);
+            this.groupBox3.Controls.Add(this.radioButton1);
+            this.groupBox3.Controls.Add(this.comboBox3);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Location = new System.Drawing.Point(6, 8);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(339, 101);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Pilih Objek";
             // 
-            // radioButton11
+            // radioButton3
             // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(19, 28);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(60, 17);
-            this.radioButton11.TabIndex = 2;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "+ Prefix";
-            this.radioButton11.UseVisualStyleBackColor = true;
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(19, 19);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(105, 17);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Block Reference";
+            this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // radioButton12
+            // radioButton1
             // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(19, 57);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(60, 17);
-            this.radioButton12.TabIndex = 2;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "+ Suffix";
-            this.radioButton12.UseVisualStyleBackColor = true;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(142, 19);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(46, 17);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Text";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // radioButton13
+            // comboBox3
             // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Location = new System.Drawing.Point(19, 86);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(88, 17);
-            this.radioButton13.TabIndex = 2;
-            this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "Replace Nilai";
-            this.radioButton13.UseVisualStyleBackColor = true;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(19, 68);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(192, 21);
+            this.comboBox3.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 52);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Block pada Model :";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(217, 67);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(23, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "button1";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -792,22 +792,13 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Styles :";
             // 
-            // label13
+            // textBox6
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(15, 131);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(38, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Height";
-            // 
-            // txtTextHeight
-            // 
-            this.txtTextHeight.Location = new System.Drawing.Point(80, 127);
-            this.txtTextHeight.MaxLength = 9;
-            this.txtTextHeight.Name = "txtTextHeight";
-            this.txtTextHeight.Size = new System.Drawing.Size(55, 20);
-            this.txtTextHeight.TabIndex = 1;
+            this.textBox6.Location = new System.Drawing.Point(80, 160);
+            this.textBox6.MaxLength = 5;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(55, 20);
+            this.textBox6.TabIndex = 1;
             // 
             // label14
             // 
@@ -818,13 +809,22 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Rotation";
             // 
-            // textBox6
+            // txtTextHeight
             // 
-            this.textBox6.Location = new System.Drawing.Point(80, 160);
-            this.textBox6.MaxLength = 5;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(55, 20);
-            this.textBox6.TabIndex = 1;
+            this.txtTextHeight.Location = new System.Drawing.Point(80, 127);
+            this.txtTextHeight.MaxLength = 9;
+            this.txtTextHeight.Name = "txtTextHeight";
+            this.txtTextHeight.Size = new System.Drawing.Size(55, 20);
+            this.txtTextHeight.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(15, 131);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(38, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Height";
             // 
             // formIncrementV2
             // 
@@ -842,23 +842,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox5.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
@@ -878,18 +878,13 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnSelBlk;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -936,5 +931,10 @@
         internal System.Windows.Forms.ComboBox cbxAttrib;
         internal System.Windows.Forms.ComboBox cbxSelBlk;
         internal System.Windows.Forms.ComboBox cbxSelTag;
+        internal System.Windows.Forms.NumericUpDown numericUpDown1;
+        internal System.Windows.Forms.TextBox txtValue;
+        internal System.Windows.Forms.TextBox txtSuffix;
+        internal System.Windows.Forms.TextBox txtPrefix;
+        internal System.Windows.Forms.TextBox textBox4;
     }
 }

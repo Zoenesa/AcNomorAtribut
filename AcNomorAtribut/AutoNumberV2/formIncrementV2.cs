@@ -79,7 +79,13 @@ namespace AcBlockAtributeIncrement
             get; set;
         }
 
-        internal int Tab { get; set; }
+        internal int Tab { get; private set; }
+
+        internal int TypeFlag
+        {
+            get;
+            private set;
+        }
 
         private void cbxBlock_SelectedIndexChanged(object sender, EventArgs e)
         {
