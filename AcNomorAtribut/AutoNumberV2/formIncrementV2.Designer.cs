@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grupTipeValue = new System.Windows.Forms.GroupBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkRomawi = new System.Windows.Forms.CheckBox();
+            this.chkKapital = new System.Windows.Forms.CheckBox();
+            this.chkKecil = new System.Windows.Forms.CheckBox();
+            this.chkAngka = new System.Windows.Forms.CheckBox();
             this.grupParameter = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numIncrement = new System.Windows.Forms.NumericUpDown();
             this.txtSuffix = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.txtPrefix = new System.Windows.Forms.TextBox();
@@ -89,18 +89,20 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cbxStyles = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtRot = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtTextHeight = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnOk = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.grupTipeValue.SuspendLayout();
             this.grupParameter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numIncrement)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -127,6 +129,8 @@
             this.tableLayoutPanel1.Controls.Add(this.grupTipeValue, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.grupParameter, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnOk, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancel, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -140,10 +144,10 @@
             // grupTipeValue
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.grupTipeValue, 2);
-            this.grupTipeValue.Controls.Add(this.checkBox4);
-            this.grupTipeValue.Controls.Add(this.checkBox3);
-            this.grupTipeValue.Controls.Add(this.checkBox2);
-            this.grupTipeValue.Controls.Add(this.checkBox1);
+            this.grupTipeValue.Controls.Add(this.chkRomawi);
+            this.grupTipeValue.Controls.Add(this.chkKapital);
+            this.grupTipeValue.Controls.Add(this.chkKecil);
+            this.grupTipeValue.Controls.Add(this.chkAngka);
             this.grupTipeValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grupTipeValue.Location = new System.Drawing.Point(3, 3);
             this.grupTipeValue.Name = "grupTipeValue";
@@ -152,56 +156,56 @@
             this.grupTipeValue.TabStop = false;
             this.grupTipeValue.Text = "Format Nilai";
             // 
-            // checkBox4
+            // chkRomawi
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(9, 114);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(98, 17);
-            this.checkBox4.TabIndex = 0;
-            this.checkBox4.Text = "Angka Romawi";
-            this.toolTip1.SetToolTip(this.checkBox4, "Mode Angka Romawi");
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chkRomawi.AutoSize = true;
+            this.chkRomawi.Location = new System.Drawing.Point(9, 114);
+            this.chkRomawi.Name = "chkRomawi";
+            this.chkRomawi.Size = new System.Drawing.Size(98, 17);
+            this.chkRomawi.TabIndex = 0;
+            this.chkRomawi.Text = "Angka Romawi";
+            this.toolTip1.SetToolTip(this.chkRomawi, "Mode Angka Romawi");
+            this.chkRomawi.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chkKapital
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(9, 83);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(143, 17);
-            this.checkBox3.TabIndex = 0;
-            this.checkBox3.Text = "Abjad Huruf Kapital [A-Z]";
-            this.toolTip1.SetToolTip(this.checkBox3, "Mode Alpabetik Huruf Kapital");
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chkKapital.AutoSize = true;
+            this.chkKapital.Location = new System.Drawing.Point(9, 83);
+            this.chkKapital.Name = "chkKapital";
+            this.chkKapital.Size = new System.Drawing.Size(143, 17);
+            this.chkKapital.TabIndex = 0;
+            this.chkKapital.Text = "Abjad Huruf Kapital [A-Z]";
+            this.toolTip1.SetToolTip(this.chkKapital, "Mode Alpabetik Huruf Kapital");
+            this.chkKapital.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chkKecil
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(9, 52);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(131, 17);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.Text = "Abjad Huruf Kecil [a-z]";
-            this.toolTip1.SetToolTip(this.checkBox2, "Mode Alpabetik");
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkKecil.AutoSize = true;
+            this.chkKecil.Location = new System.Drawing.Point(9, 52);
+            this.chkKecil.Name = "chkKecil";
+            this.chkKecil.Size = new System.Drawing.Size(131, 17);
+            this.chkKecil.TabIndex = 0;
+            this.chkKecil.Text = "Abjad Huruf Kecil [a-z]";
+            this.toolTip1.SetToolTip(this.chkKecil, "Mode Alpabetik");
+            this.chkKecil.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chkAngka
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(9, 21);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(81, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Angka [0-1]";
-            this.toolTip1.SetToolTip(this.checkBox1, "Mode Angka");
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkAngka.AutoSize = true;
+            this.chkAngka.Checked = true;
+            this.chkAngka.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAngka.Location = new System.Drawing.Point(9, 21);
+            this.chkAngka.Name = "chkAngka";
+            this.chkAngka.Size = new System.Drawing.Size(81, 17);
+            this.chkAngka.TabIndex = 0;
+            this.chkAngka.Text = "Angka [0-1]";
+            this.toolTip1.SetToolTip(this.chkAngka, "Mode Angka");
+            this.chkAngka.UseVisualStyleBackColor = true;
             // 
             // grupParameter
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.grupParameter, 2);
-            this.grupParameter.Controls.Add(this.numericUpDown1);
+            this.grupParameter.Controls.Add(this.numIncrement);
             this.grupParameter.Controls.Add(this.txtSuffix);
             this.grupParameter.Controls.Add(this.textBox4);
             this.grupParameter.Controls.Add(this.txtPrefix);
@@ -219,13 +223,18 @@
             this.grupParameter.TabStop = false;
             this.grupParameter.Text = "Parameter Penambahan";
             // 
-            // numericUpDown1
+            // numIncrement
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(71, 52);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(81, 20);
-            this.numericUpDown1.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.numericUpDown1, "Penambahan");
+            this.numIncrement.Location = new System.Drawing.Point(71, 52);
+            this.numIncrement.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.numIncrement.Name = "numIncrement";
+            this.numIncrement.Size = new System.Drawing.Size(81, 20);
+            this.numIncrement.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.numIncrement, "Penambahan");
             // 
             // txtSuffix
             // 
@@ -744,10 +753,10 @@
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.comboBox4);
-            this.groupBox10.Controls.Add(this.comboBox7);
+            this.groupBox10.Controls.Add(this.cbxStyles);
             this.groupBox10.Controls.Add(this.label9);
             this.groupBox10.Controls.Add(this.label12);
-            this.groupBox10.Controls.Add(this.textBox6);
+            this.groupBox10.Controls.Add(this.txtRot);
             this.groupBox10.Controls.Add(this.label14);
             this.groupBox10.Controls.Add(this.txtTextHeight);
             this.groupBox10.Controls.Add(this.label13);
@@ -766,13 +775,13 @@
             this.comboBox4.Size = new System.Drawing.Size(188, 21);
             this.comboBox4.TabIndex = 1;
             // 
-            // comboBox7
+            // cbxStyles
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(19, 38);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(258, 21);
-            this.comboBox7.TabIndex = 1;
+            this.cbxStyles.FormattingEnabled = true;
+            this.cbxStyles.Location = new System.Drawing.Point(19, 38);
+            this.cbxStyles.Name = "cbxStyles";
+            this.cbxStyles.Size = new System.Drawing.Size(258, 21);
+            this.cbxStyles.TabIndex = 1;
             // 
             // label9
             // 
@@ -792,13 +801,13 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Styles :";
             // 
-            // textBox6
+            // txtRot
             // 
-            this.textBox6.Location = new System.Drawing.Point(80, 160);
-            this.textBox6.MaxLength = 5;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(55, 20);
-            this.textBox6.TabIndex = 1;
+            this.txtRot.Location = new System.Drawing.Point(80, 160);
+            this.txtRot.MaxLength = 5;
+            this.txtRot.Name = "txtRot";
+            this.txtRot.Size = new System.Drawing.Size(55, 20);
+            this.txtRot.TabIndex = 1;
             // 
             // label14
             // 
@@ -826,6 +835,27 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Height";
             // 
+            // btnOk
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.btnOk, 2);
+            this.btnOk.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOk.Location = new System.Drawing.Point(3, 380);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(164, 24);
+            this.btnOk.TabIndex = 4;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancel.Location = new System.Drawing.Point(355, 380);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(177, 24);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Batal";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
             // formIncrementV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -839,7 +869,7 @@
             this.grupTipeValue.PerformLayout();
             this.grupParameter.ResumeLayout(false);
             this.grupParameter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numIncrement)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -874,10 +904,10 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkRomawi;
+        private System.Windows.Forms.CheckBox chkKapital;
+        private System.Windows.Forms.CheckBox chkKecil;
+        private System.Windows.Forms.CheckBox chkAngka;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -920,10 +950,10 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox cbxStyles;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtRot;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtTextHeight;
         private System.Windows.Forms.Label label13;
@@ -931,10 +961,12 @@
         internal System.Windows.Forms.ComboBox cbxAttrib;
         internal System.Windows.Forms.ComboBox cbxSelBlk;
         internal System.Windows.Forms.ComboBox cbxSelTag;
-        internal System.Windows.Forms.NumericUpDown numericUpDown1;
+        internal System.Windows.Forms.NumericUpDown numIncrement;
         internal System.Windows.Forms.TextBox txtValue;
         internal System.Windows.Forms.TextBox txtSuffix;
         internal System.Windows.Forms.TextBox txtPrefix;
         internal System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

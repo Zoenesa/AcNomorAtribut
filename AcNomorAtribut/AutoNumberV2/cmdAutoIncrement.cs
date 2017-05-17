@@ -18,9 +18,23 @@ namespace AcBlockAtributeIncrement
         private Document doc;
         private Database db;
         private Editor ed;
-
+        private Dictionary<string, AttachmentPoint> justify;
+        
         public cmdAutoIncrement()
         {
+            this.justify = new Dictionary<string, AttachmentPoint>();
+            this.justify.Add("Left", AttachmentPoint.BaseLeft);
+            this.justify.Add("Center", AttachmentPoint.BaseCenter);
+            this.justify.Add("Right", AttachmentPoint.BaseRight);
+            this.justify.Add("Top Left", AttachmentPoint.TopLeft);
+            this.justify.Add("Top Center", AttachmentPoint.TopCenter);
+            this.justify.Add("Top Right", AttachmentPoint.TopRight);
+            this.justify.Add("Middle Left", AttachmentPoint.MiddleLeft);
+            this.justify.Add("Middle Center", AttachmentPoint.MiddleCenter);
+            this.justify.Add("Middle Right", AttachmentPoint.MiddleRight);
+            this.justify.Add("Bottom Left", AttachmentPoint.BottomLeft);
+            this.justify.Add("Bottom Center", AttachmentPoint.BottomCenter);
+            this.justify.Add("Bottom Right", AttachmentPoint.BottomRight);
             dlg = new formIncrementV2();
         }
 

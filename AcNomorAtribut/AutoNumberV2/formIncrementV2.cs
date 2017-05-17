@@ -20,6 +20,38 @@ namespace AcBlockAtributeIncrement
         public formIncrementV2()
         {
             InitializeComponent();
+            base.AutoScaleDimensions = new SizeF(6f, 13f);
+            Graphics graphic = Graphics.FromHwnd(IntPtr.Zero);
+            this._ScaleX = graphic.DpiX / 96f;
+            this._ScaleY = graphic.DpiY / 96f;
+            cbxAttrib.DisplayMember = "Tag";
+            cbxSelBlk.DisplayMember = "Name";
+            cbxSelTag.DisplayMember = "Tag";
+            cbxBlock.DisplayMember = "Name";
+            this._db = HostApplicationServices.WorkingDatabase;
+            this.TextHeight = this._db.Textsize;
+
+            this._chkBoxes = new Dictionary<int, CheckBox>()
+            {
+                { 1, this.chkAngka}, { 2, chkKecil}, { 3, chkKapital}, { 4, chkRomawi }
+            };
+            using (Transaction tr = this._db.TransactionManager.StartTransaction())
+            {
+                BlockTableRecord[] blockwithAttribute = this._db.GetBlocksWithAttribute();
+                this.cbxBlock.DataSource = blockwithAttribute;
+                this.BlockScale = 1;
+                this.BlockRotation = 0;
+                this.cbxSelBlk.DataSource = blockwithAttribute;
+                if (blockwithAttribute != null && blockwithAttribute.Length != 0)
+                {
+                    this.cbxSelBlk.SelectedIndex = 0;
+                }
+
+                cbxStyles.Items.AddRange(this.GetStylesNames());
+                cbxStyles.SelectedItem = this._db.Textstyle.GetObject<TextStyleTableRecord>().Name;
+                this.StringPositionFlag = 2;
+                tr.Commit();
+            }
         }
 
         private Database _db;
@@ -36,6 +68,8 @@ namespace AcBlockAtributeIncrement
 
         private double _blockRotation;
 
+        private double _textRotation;
+
         private float _ScaleX, _ScaleY;
 
         internal string AutoEntTypeFlag { get; set; }
@@ -45,6 +79,19 @@ namespace AcBlockAtributeIncrement
             get { return this._blockRotation; }
             set { this._blockRotation = value;
                 this.txtBlkRot.Text = this._blockRotation.ToString(); }
+        }
+
+        public double TextRotation
+        {
+            get
+            {
+                return this._textRotation;
+            }
+            set
+            {
+                this._textRotation = value;
+                this.txtRot.Text = Converter.AngleToString(this._textRotation);
+            }
         }
 
         public double BlockScale
@@ -142,6 +189,16 @@ namespace AcBlockAtributeIncrement
                 this.txtTextHeight.Text = Converter.DistanceToString(this._textHeight);
             }
 
+        }
+
+        private string[] GetStylesNames()
+        {
+            return (
+                from ts in this._db.TextStyleTableId.GetObject<TextStyleTable>().GetObjects<TextStyleTableRecord>()
+                select ts.Name into n
+                where n.Trim() != ""
+                orderby n
+                select n).ToArray<string>();
         }
        
     }

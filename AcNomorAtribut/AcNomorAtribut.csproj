@@ -36,7 +36,6 @@
     <Compile Include="BlockV1\BlockAttribute.cs" />
     <Compile Include="BlockV1\BlockAutoNumber.cs" />
     <Compile Include="AutoNumberV2\BlockExtensions.cs" />
-    <Compile Include="classEditorHelper.cs" />
     <Compile Include="Commands.cs" />
     <Compile Include="BlockV1\DataBlok.cs" />
     <Compile Include="BlockV1\Extensions.cs" />
