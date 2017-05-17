@@ -83,7 +83,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbxAutoBlock = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -96,9 +96,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txtTextHeight = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.grupTipeValue.SuspendLayout();
             this.grupParameter.SuspendLayout();
@@ -166,6 +166,7 @@
             this.chkRomawi.Text = "Angka Romawi";
             this.toolTip1.SetToolTip(this.chkRomawi, "Mode Angka Romawi");
             this.chkRomawi.UseVisualStyleBackColor = true;
+            this.chkRomawi.CheckedChanged += new System.EventHandler(this.chkRomawi_CheckedChanged);
             // 
             // chkKapital
             // 
@@ -177,6 +178,7 @@
             this.chkKapital.Text = "Abjad Huruf Kapital [A-Z]";
             this.toolTip1.SetToolTip(this.chkKapital, "Mode Alpabetik Huruf Kapital");
             this.chkKapital.UseVisualStyleBackColor = true;
+            this.chkKapital.CheckedChanged += new System.EventHandler(this.chkKapital_CheckedChanged);
             // 
             // chkKecil
             // 
@@ -188,6 +190,7 @@
             this.chkKecil.Text = "Abjad Huruf Kecil [a-z]";
             this.toolTip1.SetToolTip(this.chkKecil, "Mode Alpabetik");
             this.chkKecil.UseVisualStyleBackColor = true;
+            this.chkKecil.CheckedChanged += new System.EventHandler(this.chkKecil_CheckedChanged);
             // 
             // chkAngka
             // 
@@ -201,6 +204,7 @@
             this.chkAngka.Text = "Angka [0-1]";
             this.toolTip1.SetToolTip(this.chkAngka, "Mode Angka");
             this.chkAngka.UseVisualStyleBackColor = true;
+            this.chkAngka.CheckedChanged += new System.EventHandler(this.chkAngka_CheckedChanged);
             // 
             // grupParameter
             // 
@@ -451,6 +455,7 @@
             // 
             // cbxAttrib
             // 
+            this.cbxAttrib.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxAttrib.FormattingEnabled = true;
             this.cbxAttrib.Location = new System.Drawing.Point(19, 36);
             this.cbxAttrib.Name = "cbxAttrib";
@@ -481,12 +486,14 @@
             // 
             // cbxBlock
             // 
+            this.cbxBlock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBlock.FormattingEnabled = true;
             this.cbxBlock.Location = new System.Drawing.Point(19, 68);
             this.cbxBlock.Name = "cbxBlock";
             this.cbxBlock.Size = new System.Drawing.Size(192, 21);
             this.cbxBlock.TabIndex = 1;
             this.cbxBlock.SelectedIndexChanged += new System.EventHandler(this.cbxBlock_SelectedIndexChanged);
+            this.cbxBlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxBlock_KeyDown);
             this.cbxBlock.Validating += new System.ComponentModel.CancelEventHandler(this.cbxBlock_Validating);
             // 
             // label7
@@ -506,6 +513,7 @@
             this.btnBrowse.TabIndex = 0;
             this.btnBrowse.Text = "Browse Eksternal Block";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnSelBlk
             // 
@@ -533,9 +541,9 @@
             this.groupBox9.Controls.Add(this.radioButton13);
             this.groupBox9.Controls.Add(this.radioButton12);
             this.groupBox9.Controls.Add(this.radioButton11);
-            this.groupBox9.Location = new System.Drawing.Point(6, 182);
+            this.groupBox9.Location = new System.Drawing.Point(6, 174);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(339, 129);
+            this.groupBox9.Size = new System.Drawing.Size(339, 109);
             this.groupBox9.TabIndex = 4;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Action";
@@ -543,7 +551,7 @@
             // radioButton13
             // 
             this.radioButton13.AutoSize = true;
-            this.radioButton13.Location = new System.Drawing.Point(19, 86);
+            this.radioButton13.Location = new System.Drawing.Point(19, 81);
             this.radioButton13.Name = "radioButton13";
             this.radioButton13.Size = new System.Drawing.Size(88, 17);
             this.radioButton13.TabIndex = 2;
@@ -554,7 +562,7 @@
             // radioButton12
             // 
             this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(19, 57);
+            this.radioButton12.Location = new System.Drawing.Point(19, 52);
             this.radioButton12.Name = "radioButton12";
             this.radioButton12.Size = new System.Drawing.Size(60, 17);
             this.radioButton12.TabIndex = 2;
@@ -565,7 +573,7 @@
             // radioButton11
             // 
             this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(19, 28);
+            this.radioButton11.Location = new System.Drawing.Point(19, 23);
             this.radioButton11.Name = "radioButton11";
             this.radioButton11.Size = new System.Drawing.Size(60, 17);
             this.radioButton11.TabIndex = 2;
@@ -628,6 +636,7 @@
             this.cbxSelBlk.Name = "cbxSelBlk";
             this.cbxSelBlk.Size = new System.Drawing.Size(258, 21);
             this.cbxSelBlk.TabIndex = 1;
+            this.cbxSelBlk.SelectedIndexChanged += new System.EventHandler(this.cbxSelBlk_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -681,7 +690,7 @@
             // 
             this.groupBox3.Controls.Add(this.radioButton3);
             this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Controls.Add(this.comboBox3);
+            this.groupBox3.Controls.Add(this.cbxAutoBlock);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Location = new System.Drawing.Point(6, 8);
@@ -713,13 +722,14 @@
             this.radioButton1.Text = "Text";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // comboBox3
+            // cbxAutoBlock
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(19, 68);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(192, 21);
-            this.comboBox3.TabIndex = 1;
+            this.cbxAutoBlock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxAutoBlock.FormattingEnabled = true;
+            this.cbxAutoBlock.Location = new System.Drawing.Point(19, 68);
+            this.cbxAutoBlock.Name = "cbxAutoBlock";
+            this.cbxAutoBlock.Size = new System.Drawing.Size(192, 21);
+            this.cbxAutoBlock.TabIndex = 1;
             // 
             // label8
             // 
@@ -769,6 +779,7 @@
             // 
             // comboBox4
             // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(19, 91);
             this.comboBox4.Name = "comboBox4";
@@ -777,6 +788,7 @@
             // 
             // cbxStyles
             // 
+            this.cbxStyles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxStyles.FormattingEnabled = true;
             this.cbxStyles.Location = new System.Drawing.Point(19, 38);
             this.cbxStyles.Name = "cbxStyles";
@@ -921,7 +933,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RadioButton radioButton3;
@@ -968,5 +979,6 @@
         internal System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
+        internal System.Windows.Forms.ComboBox cbxAutoBlock;
     }
 }

@@ -151,7 +151,7 @@ namespace AcBlockAtributeIncrement
                 {
                     return this.IncrementAbjad(value);
                 }
-                return (("AngkaRomawi"));
+                return ((Romawi)value + this.dlg.IncrValue).ToString();
             }
             typeFlag = Convert.ToInt32(value, 16) + this.dlg.IncrValue;
             str = (value == value.ToUpper() ? "X" : "x");
@@ -165,7 +165,6 @@ namespace AcBlockAtributeIncrement
             int num = 0;
             Stack<ObjectId> objectIds = new Stack<ObjectId>();
             Stack<string> strs = new Stack<string>();
-
             while (true)
             {
                 using (BlockReference blockRef = new BlockReference(Point3d.Origin, TableRecord.ObjectId))
@@ -237,15 +236,15 @@ namespace AcBlockAtributeIncrement
 
         private void OnSelectionAdded(object sender, SelectionAddedEventArgs e)
         {
-            //string name = ((BlockTableRecord)this.dlg.cbxAutoBlock.SelectedItem).Name;
-            //SelectionSet addedObjects = e.AddedObjects;
-            //for (int i = 0; i < e.AddedObjects.Count; i++)
-            //{
-            //    if (addedObjects[i].ObjectId.GetObject<BlockReference>().GetEffectiveName() != name)
-            //    {
-            //        e.Remove(i);
-            //    }
-            //}
+            string name = ((BlockTableRecord)this.dlg.cbxAutoBlock.SelectedItem).Name;
+            SelectionSet addedObjects = e.AddedObjects;
+            for (int i = 0; i < e.AddedObjects.Count; i++)
+            {
+                if (addedObjects[i].ObjectId.GetObject<BlockReference>().GetEffectiveName() != name)
+                {
+                    e.Remove(i);
+                }
+            }
         }
 
 
