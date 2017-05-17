@@ -140,8 +140,16 @@ namespace AcBlockAtributeIncrement
             this.TextHeight = this._db.Textsize;
             this._chkBoxes = new Dictionary<int, CheckBox>()
             {
-                { 1, this.chkAngka}, { 2, chkKecil}, { 3, chkKapital}, { 4, chkRomawi }
+                { 1, this.chkAngka },
+                { 2, chkKecil },
+                { 3, chkKapital },
+                { 4, chkRomawi }
             };
+            this._chkEntTypes = new Dictionary<int, CheckBox>()
+            {
+                { 1, this.chkSelText }, { 2, this.chkMtext }, { 4, this.chkSelBlock }
+            };
+
             using (Transaction tr = this._db.TransactionManager.StartTransaction())
             {
                 BlockTableRecord[] blockwithAttribute = this._db.GetBlocksWithAttribute();
@@ -156,6 +164,7 @@ namespace AcBlockAtributeIncrement
 
                 cbxStyles.Items.AddRange(this.GetStylesNames());
                 cbxStyles.SelectedItem = this._db.Textstyle.GetObject<TextStyleTableRecord>().Name;
+                cbxAlignment.SelectedIndex = 0;
                 this.StringPositionFlag = 2;
                 tr.Commit();
             }
@@ -171,22 +180,55 @@ namespace AcBlockAtributeIncrement
 
         private void chkAngka_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkAngka.Checked)
+            {
+                chkRomawi.Checked = false;
+                chkHex.Checked = false;
+                txtSeparator.Enabled = true;
+            }
         }
 
         private void chkKecil_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkKecil.Checked)
+            {
+                chkHex.Checked = false;
+                chkRomawi.Checked = false;
+                txtSeparator.Enabled = true;
+            }
         }
 
         private void chkKapital_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkKapital.Checked)
+            {
+                chkHex.Checked = false;
+                chkRomawi.Checked = false;
+                txtSeparator.Enabled = true;
+            }
         }
 
         private void chkRomawi_CheckedChanged(object sender, EventArgs e)
         {
+            if (chkRomawi.Checked)
+            {
+                chkAngka.Checked = false;
+                chkKecil.Checked = false;
+                chkKapital.Checked = false;
+                txtSeparator.Enabled = false;
+            }
+        }
 
+        private void chkHex_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkHex.Checked)
+            {
+                chkAngka.Checked = false;
+                chkKapital.Checked = false;
+                chkKecil.Checked = false;
+                chkRomawi.Checked = false;
+                txtSeparator.Enabled = false;
+            }
         }
 
         private void cbxBlock_KeyDown(object sender, KeyEventArgs e)
@@ -254,8 +296,47 @@ namespace AcBlockAtributeIncrement
             this.cbxBlock.SelectedItem = obj1;
         }
 
-        private bool isAbjad(string str, string val)
+        private bool IsAlpabetik(string str, string val)
         {
+            if (str == null || str.Trim() == "")
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(val))
+            {
+                return !str.Any<char>((char c) => !char.IsLetter(c));
+            }
+            char chr = val.First<char>();
+            string[] strArrays = str.Split(new char[] { chr });
+            for (int i = 0; i < (int)strArrays.Length; i++)
+            {
+                if (strArrays[i].Any<char>((char c) => !char.IsLetter(c)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool IsAlpaNumerik(string str, string val)
+        {
+            if (str == null || str.Trim() == "")
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(val))
+            {
+                return !str.Any<char>((char c) => !char.IsLetterOrDigit(c));
+            }
+            char chr = val.First<char>();
+            string[] strArrays = str.Split(new char[] { chr });
+            for (int i = 0; i < (int)strArrays.Length; i++)
+            {
+                if (strArrays[i].Any<char>((char c) => !char.IsLetterOrDigit(c)))
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -293,7 +374,142 @@ namespace AcBlockAtributeIncrement
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-           
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.DefaultExt = ".dwg";
+            ofd.Title = "Pilih File Block";
+            ofd.RestoreDirectory = true;
+            ofd.Multiselect = false;
+            if (ofd.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            ObjectId block = this._db.BlockTableId.GetObject<BlockTable>().GetBlock(ofd.FileName);
+            if (block == ObjectId.Null)
+            {
+                AcAp.ShowAlertDialog("Invalid File");
+                return;
+            }
+            BlockTableRecord obj = block.GetObject<BlockTableRecord>();
+            AttributeDefinition[] array = (
+                from att in obj.GetObjects<AttributeDefinition>()
+                where !att.Constant
+                select att).ToArray<AttributeDefinition>();
+            if (array == null || array.Length == 0)
+            {
+                AcAp.ShowAlertDialog("");
+                return;
+            }
+            if (!this.cbxBlock.Items.Contains(obj))
+            {
+                this.cbxBlock.DataSource = this._db.GetBlocksWithAttribute();
+            }
+            this.cbxBlock.SelectedItem = obj;
+        }
+
+        private void btnSelBlk_Click(object sender, EventArgs e)
+        {
+            Editor editor = AcAp.DocumentManager.MdiActiveDocument.Editor;
+            PromptEntityOptions pEnt = new PromptEntityOptions("\nSelect Block: ");
+            pEnt.SetRejectMessage("Selected Object is not a Block!.");
+            pEnt.AddAllowedClass(typeof(BlockReference), true);
+            PromptEntityResult pEntRes = editor.GetEntity(pEnt);
+            if (pEntRes.Status != PromptStatus.OK)
+            {
+                return;
+            }
+            BlockReference bRef = pEntRes.ObjectId.GetObject<BlockReference>();
+            Autodesk.AutoCAD.DatabaseServices.AttributeCollection attRefColl = bRef.AttributeCollection;
+            if (attRefColl == null || attRefColl.Count == 0)
+            {
+                AcAp.ShowAlertDialog("Selected Block do not have Attributes.");
+                return;
+            }
+            this.cbxBlock.SelectedItem = (bRef.IsDynamicBlock ? bRef.DynamicBlockTableRecord.GetObject<BlockTableRecord>() : bRef.BlockTableRecord.GetObject<BlockTableRecord>());
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            int num;
+            string str;
+            this.TypeFlag = (
+                from kvp in this._chkBoxes
+                where kvp.Value.Checked
+                select kvp.Key).Sum();
+            this.EntityTypeFlag = (
+                from kvp in this._chkEntTypes
+                where kvp.Value.Checked
+                select kvp.Key).Sum();
+            base.DialogResult = DialogResult.OK;
+            base.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkSelText_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((CheckBox)sender).Checked)
+            {
+                this.chkSelBlock.Checked = false;
+            }
+        }
+
+        private void chkSelBlock_CheckedChanged(object sender, EventArgs e)
+        {
+            bool flag;
+            if (!chkSelBlock.Checked)
+            {
+                ComboBox combobox = this.cbxSelBlk;
+                int num = 0;
+                flag = Convert.ToBoolean(num);
+                this.cbxSelTag.Enabled = Convert.ToBoolean(num);
+                combobox.Enabled = flag;
+                return;
+            }
+            if (this.cbxSelBlk.Items == null || this.cbxSelBlk.Items.Count <= 0)
+            {
+                AcAp.ShowAlertDialog("None block with attributes in this drawing.");
+                this.chkSelBlock.Checked = false;
+                return;
+            }
+            ComboBox combobox1 = this.cbxSelBlk;
+            int num1 = 1;
+            flag = Convert.ToBoolean(num1);
+            this.cbxSelTag.Enabled = Convert.ToBoolean(num1);
+            CheckBox checkbox = this.chkMtext;
+            int num2 = 0;
+            flag = Convert.ToBoolean(num2);
+            this.chkSelText.Checked = Convert.ToBoolean(num2);
+            checkbox.Checked = flag;
+
+        }
+
+        private void chkMtext_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private double StringToScale(string s)
+        {
+            double num;
+            double num1;
+            double num2;
+            if (double.TryParse(s, out num))
+            {
+                if (num <= 0)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                return num;
+            }
+            string[] strArrays = s.Split(new char[] { '/', ':' });
+            if ((int)strArrays.Length != 2 || !double.TryParse(strArrays[0], out num2) || !double.TryParse(strArrays[1], out num1))
+            {
+                throw new ArgumentException();
+            }
+            return num2 / num1;
         }
 
         private bool IsValidString(string str, string val)
@@ -308,7 +524,7 @@ namespace AcBlockAtributeIncrement
                     }
                 case 2:
                     {
-                        if (!this.isAbjad(str, val))
+                        if (!this.IsAlpabetik(str, val))
                         {
                             return false;
                         }
@@ -316,16 +532,32 @@ namespace AcBlockAtributeIncrement
                     }
                 case 3:
                     {
-                        if (!this.isAbjad(str, val))
+                        if (!this.IsAlpaNumerik(str, val))
                         {
                             return false;
                         }
                         return this.IsUpper(str);
                     }
                 case 4:
+                    if (!this.IsAlpabetik(str, val))
+                    {
+                        return false;
+                    }
+                    return this.IsLower(str);
                 case 5:
+                    if (!this.IsAlpaNumerik(str, val))
+                    {
+                        return false;
+                    }
+                    return this.IsLower(str);
                 case 6:
+                    {
+                        return IsAlpabetik(str, val);
+                    }
                 case 7:
+                    {
+                        return IsAlpaNumerik(str, val);
+                    }
                 case 8:
                     {
                         return int.TryParse(str, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out num);

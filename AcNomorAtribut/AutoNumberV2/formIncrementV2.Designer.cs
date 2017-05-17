@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formIncrementV2));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grupTipeValue = new System.Windows.Forms.GroupBox();
+            this.chkHex = new System.Windows.Forms.CheckBox();
             this.chkRomawi = new System.Windows.Forms.CheckBox();
             this.chkKapital = new System.Windows.Forms.CheckBox();
             this.chkKecil = new System.Windows.Forms.CheckBox();
@@ -38,7 +40,7 @@
             this.grupParameter = new System.Windows.Forms.GroupBox();
             this.numIncrement = new System.Windows.Forms.NumericUpDown();
             this.txtSuffix = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtSeparator = new System.Windows.Forms.TextBox();
             this.txtPrefix = new System.Windows.Forms.TextBox();
             this.txtValue = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -71,9 +73,10 @@
             this.radioButton12 = new System.Windows.Forms.RadioButton();
             this.radioButton11 = new System.Windows.Forms.RadioButton();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.chkMtext = new System.Windows.Forms.CheckBox();
             this.cbxSelTag = new System.Windows.Forms.ComboBox();
+            this.chkSelBlock = new System.Windows.Forms.CheckBox();
+            this.chkSelText = new System.Windows.Forms.CheckBox();
             this.cbxSelBlk = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -88,7 +91,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cbxAlignment = new System.Windows.Forms.ComboBox();
             this.cbxStyles = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -144,6 +147,7 @@
             // grupTipeValue
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.grupTipeValue, 2);
+            this.grupTipeValue.Controls.Add(this.chkHex);
             this.grupTipeValue.Controls.Add(this.chkRomawi);
             this.grupTipeValue.Controls.Add(this.chkKapital);
             this.grupTipeValue.Controls.Add(this.chkKecil);
@@ -156,13 +160,24 @@
             this.grupTipeValue.TabStop = false;
             this.grupTipeValue.Text = "Format Nilai";
             // 
+            // chkHex
+            // 
+            this.chkHex.AutoSize = true;
+            this.chkHex.Location = new System.Drawing.Point(9, 99);
+            this.chkHex.Name = "chkHex";
+            this.chkHex.Size = new System.Drawing.Size(92, 17);
+            this.chkHex.TabIndex = 3;
+            this.chkHex.Text = "Heksadesimal";
+            this.chkHex.UseVisualStyleBackColor = true;
+            this.chkHex.CheckedChanged += new System.EventHandler(this.chkHex_CheckedChanged);
+            // 
             // chkRomawi
             // 
             this.chkRomawi.AutoSize = true;
-            this.chkRomawi.Location = new System.Drawing.Point(9, 114);
+            this.chkRomawi.Location = new System.Drawing.Point(9, 125);
             this.chkRomawi.Name = "chkRomawi";
             this.chkRomawi.Size = new System.Drawing.Size(98, 17);
-            this.chkRomawi.TabIndex = 0;
+            this.chkRomawi.TabIndex = 4;
             this.chkRomawi.Text = "Angka Romawi";
             this.toolTip1.SetToolTip(this.chkRomawi, "Mode Angka Romawi");
             this.chkRomawi.UseVisualStyleBackColor = true;
@@ -171,10 +186,10 @@
             // chkKapital
             // 
             this.chkKapital.AutoSize = true;
-            this.chkKapital.Location = new System.Drawing.Point(9, 83);
+            this.chkKapital.Location = new System.Drawing.Point(9, 73);
             this.chkKapital.Name = "chkKapital";
             this.chkKapital.Size = new System.Drawing.Size(143, 17);
-            this.chkKapital.TabIndex = 0;
+            this.chkKapital.TabIndex = 2;
             this.chkKapital.Text = "Abjad Huruf Kapital [A-Z]";
             this.toolTip1.SetToolTip(this.chkKapital, "Mode Alpabetik Huruf Kapital");
             this.chkKapital.UseVisualStyleBackColor = true;
@@ -183,10 +198,10 @@
             // chkKecil
             // 
             this.chkKecil.AutoSize = true;
-            this.chkKecil.Location = new System.Drawing.Point(9, 52);
+            this.chkKecil.Location = new System.Drawing.Point(9, 47);
             this.chkKecil.Name = "chkKecil";
             this.chkKecil.Size = new System.Drawing.Size(131, 17);
-            this.chkKecil.TabIndex = 0;
+            this.chkKecil.TabIndex = 1;
             this.chkKecil.Text = "Abjad Huruf Kecil [a-z]";
             this.toolTip1.SetToolTip(this.chkKecil, "Mode Alpabetik");
             this.chkKecil.UseVisualStyleBackColor = true;
@@ -211,7 +226,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.grupParameter, 2);
             this.grupParameter.Controls.Add(this.numIncrement);
             this.grupParameter.Controls.Add(this.txtSuffix);
-            this.grupParameter.Controls.Add(this.textBox4);
+            this.grupParameter.Controls.Add(this.txtSeparator);
             this.grupParameter.Controls.Add(this.txtPrefix);
             this.grupParameter.Controls.Add(this.txtValue);
             this.grupParameter.Controls.Add(this.label5);
@@ -237,7 +252,7 @@
             -2147483648});
             this.numIncrement.Name = "numIncrement";
             this.numIncrement.Size = new System.Drawing.Size(81, 20);
-            this.numIncrement.TabIndex = 2;
+            this.numIncrement.TabIndex = 3;
             this.toolTip1.SetToolTip(this.numIncrement, "Penambahan");
             // 
             // txtSuffix
@@ -245,23 +260,23 @@
             this.txtSuffix.Location = new System.Drawing.Point(71, 149);
             this.txtSuffix.Name = "txtSuffix";
             this.txtSuffix.Size = new System.Drawing.Size(81, 20);
-            this.txtSuffix.TabIndex = 1;
+            this.txtSuffix.TabIndex = 9;
             this.toolTip1.SetToolTip(this.txtSuffix, "Penambahan Pada Akhiran Parameter");
             // 
-            // textBox4
+            // txtSeparator
             // 
-            this.textBox4.Location = new System.Drawing.Point(71, 89);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(40, 20);
-            this.textBox4.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.textBox4, "Separator Objek");
+            this.txtSeparator.Location = new System.Drawing.Point(71, 89);
+            this.txtSeparator.Name = "txtSeparator";
+            this.txtSeparator.Size = new System.Drawing.Size(40, 20);
+            this.txtSeparator.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtSeparator, "Separator Objek");
             // 
             // txtPrefix
             // 
             this.txtPrefix.Location = new System.Drawing.Point(71, 120);
             this.txtPrefix.Name = "txtPrefix";
             this.txtPrefix.Size = new System.Drawing.Size(81, 20);
-            this.txtPrefix.TabIndex = 1;
+            this.txtPrefix.TabIndex = 7;
             this.toolTip1.SetToolTip(this.txtPrefix, "Penambahan Pada Awal Parameter");
             // 
             // txtValue
@@ -278,7 +293,7 @@
             this.label5.Location = new System.Drawing.Point(6, 153);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
-            this.label5.TabIndex = 0;
+            this.label5.TabIndex = 8;
             this.label5.Text = "Suffix";
             // 
             // label4
@@ -287,7 +302,7 @@
             this.label4.Location = new System.Drawing.Point(6, 124);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 0;
+            this.label4.TabIndex = 6;
             this.label4.Text = "Prefix";
             // 
             // label3
@@ -296,7 +311,7 @@
             this.label3.Location = new System.Drawing.Point(6, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
-            this.label3.TabIndex = 0;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Separator";
             // 
             // label2
@@ -305,7 +320,7 @@
             this.label2.Location = new System.Drawing.Point(6, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Increment";
             // 
             // label1
@@ -330,7 +345,7 @@
             this.tableLayoutPanel1.SetRowSpan(this.tabControl1, 2);
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(359, 371);
-            this.tabControl1.TabIndex = 3;
+            this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
@@ -349,10 +364,10 @@
             // 
             this.groupBox5.Controls.Add(this.groupBox7);
             this.groupBox5.Controls.Add(this.groupBox6);
-            this.groupBox5.Location = new System.Drawing.Point(7, 198);
+            this.groupBox5.Location = new System.Drawing.Point(7, 215);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(338, 141);
-            this.groupBox5.TabIndex = 1;
+            this.groupBox5.Size = new System.Drawing.Size(338, 124);
+            this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Properti";
             // 
@@ -364,7 +379,7 @@
             this.groupBox7.Location = new System.Drawing.Point(11, 70);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(321, 45);
-            this.groupBox7.TabIndex = 0;
+            this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Skala";
             // 
@@ -374,7 +389,7 @@
             this.txtBlkScale.MaxLength = 5;
             this.txtBlkScale.Name = "txtBlkScale";
             this.txtBlkScale.Size = new System.Drawing.Size(46, 20);
-            this.txtBlkScale.TabIndex = 1;
+            this.txtBlkScale.TabIndex = 2;
             this.txtBlkScale.Text = "1";
             // 
             // radioButton7
@@ -383,7 +398,7 @@
             this.radioButton7.Location = new System.Drawing.Point(163, 19);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(85, 17);
-            this.radioButton7.TabIndex = 0;
+            this.radioButton7.TabIndex = 1;
             this.radioButton7.TabStop = true;
             this.radioButton7.Text = "Skala Global";
             this.radioButton7.UseVisualStyleBackColor = true;
@@ -417,7 +432,7 @@
             this.txtBlkRot.MaxLength = 5;
             this.txtBlkRot.Name = "txtBlkRot";
             this.txtBlkRot.Size = new System.Drawing.Size(46, 20);
-            this.txtBlkRot.TabIndex = 1;
+            this.txtBlkRot.TabIndex = 2;
             this.txtBlkRot.Text = "0";
             // 
             // radioButton6
@@ -426,7 +441,7 @@
             this.radioButton6.Location = new System.Drawing.Point(163, 19);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(90, 17);
-            this.radioButton6.TabIndex = 0;
+            this.radioButton6.TabIndex = 1;
             this.radioButton6.TabStop = true;
             this.radioButton6.Text = "User Rotation";
             this.radioButton6.UseVisualStyleBackColor = true;
@@ -446,9 +461,9 @@
             // 
             this.groupBox2.Controls.Add(this.cbxAttrib);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(7, 118);
+            this.groupBox2.Location = new System.Drawing.Point(7, 126);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(338, 74);
+            this.groupBox2.Size = new System.Drawing.Size(338, 83);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pilih Attribute";
@@ -479,8 +494,8 @@
             this.groupBox1.Controls.Add(this.btnSelBlk);
             this.groupBox1.Location = new System.Drawing.Point(7, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(338, 101);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.Size = new System.Drawing.Size(338, 112);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pilih Objek";
             // 
@@ -488,10 +503,10 @@
             // 
             this.cbxBlock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBlock.FormattingEnabled = true;
-            this.cbxBlock.Location = new System.Drawing.Point(19, 68);
+            this.cbxBlock.Location = new System.Drawing.Point(19, 79);
             this.cbxBlock.Name = "cbxBlock";
             this.cbxBlock.Size = new System.Drawing.Size(192, 21);
-            this.cbxBlock.TabIndex = 1;
+            this.cbxBlock.TabIndex = 2;
             this.cbxBlock.SelectedIndexChanged += new System.EventHandler(this.cbxBlock_SelectedIndexChanged);
             this.cbxBlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxBlock_KeyDown);
             this.cbxBlock.Validating += new System.ComponentModel.CancelEventHandler(this.cbxBlock_Validating);
@@ -499,10 +514,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 52);
+            this.label7.Location = new System.Drawing.Point(16, 63);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(178, 13);
-            this.label7.TabIndex = 0;
+            this.label7.TabIndex = 1;
             this.label7.Text = "Data Block Reference pada Model :";
             // 
             // btnBrowse
@@ -517,12 +532,13 @@
             // 
             // btnSelBlk
             // 
-            this.btnSelBlk.Location = new System.Drawing.Point(217, 67);
+            this.btnSelBlk.Image = global::AcNomorAtribut.Properties.Resources.Select;
+            this.btnSelBlk.Location = new System.Drawing.Point(217, 78);
             this.btnSelBlk.Name = "btnSelBlk";
             this.btnSelBlk.Size = new System.Drawing.Size(23, 23);
-            this.btnSelBlk.TabIndex = 0;
-            this.btnSelBlk.Text = "button1";
+            this.btnSelBlk.TabIndex = 3;
             this.btnSelBlk.UseVisualStyleBackColor = true;
+            this.btnSelBlk.Click += new System.EventHandler(this.btnSelBlk_Click);
             // 
             // tabPage2
             // 
@@ -541,16 +557,17 @@
             this.groupBox9.Controls.Add(this.radioButton13);
             this.groupBox9.Controls.Add(this.radioButton12);
             this.groupBox9.Controls.Add(this.radioButton11);
-            this.groupBox9.Location = new System.Drawing.Point(6, 174);
+            this.groupBox9.Location = new System.Drawing.Point(6, 187);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(339, 109);
-            this.groupBox9.TabIndex = 4;
+            this.groupBox9.TabIndex = 1;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Action";
             // 
             // radioButton13
             // 
             this.radioButton13.AutoSize = true;
+            this.radioButton13.Checked = true;
             this.radioButton13.Location = new System.Drawing.Point(19, 81);
             this.radioButton13.Name = "radioButton13";
             this.radioButton13.Size = new System.Drawing.Size(88, 17);
@@ -565,8 +582,7 @@
             this.radioButton12.Location = new System.Drawing.Point(19, 52);
             this.radioButton12.Name = "radioButton12";
             this.radioButton12.Size = new System.Drawing.Size(60, 17);
-            this.radioButton12.TabIndex = 2;
-            this.radioButton12.TabStop = true;
+            this.radioButton12.TabIndex = 1;
             this.radioButton12.Text = "+ Suffix";
             this.radioButton12.UseVisualStyleBackColor = true;
             // 
@@ -576,93 +592,104 @@
             this.radioButton11.Location = new System.Drawing.Point(19, 23);
             this.radioButton11.Name = "radioButton11";
             this.radioButton11.Size = new System.Drawing.Size(60, 17);
-            this.radioButton11.TabIndex = 2;
-            this.radioButton11.TabStop = true;
+            this.radioButton11.TabIndex = 0;
             this.radioButton11.Text = "+ Prefix";
             this.radioButton11.UseVisualStyleBackColor = true;
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.radioButton9);
-            this.groupBox8.Controls.Add(this.radioButton10);
+            this.groupBox8.Controls.Add(this.chkMtext);
             this.groupBox8.Controls.Add(this.cbxSelTag);
+            this.groupBox8.Controls.Add(this.chkSelBlock);
+            this.groupBox8.Controls.Add(this.chkSelText);
             this.groupBox8.Controls.Add(this.cbxSelBlk);
             this.groupBox8.Controls.Add(this.label11);
             this.groupBox8.Controls.Add(this.label10);
             this.groupBox8.Controls.Add(this.button3);
             this.groupBox8.Location = new System.Drawing.Point(6, 8);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(339, 160);
-            this.groupBox8.TabIndex = 3;
+            this.groupBox8.Size = new System.Drawing.Size(339, 172);
+            this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Pilih Objek";
             // 
-            // radioButton9
+            // chkMtext
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(19, 19);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(105, 17);
-            this.radioButton9.TabIndex = 2;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "Block Reference";
-            this.radioButton9.UseVisualStyleBackColor = true;
-            // 
-            // radioButton10
-            // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(142, 19);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(46, 17);
-            this.radioButton10.TabIndex = 2;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "Text";
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.chkMtext.AutoSize = true;
+            this.chkMtext.Location = new System.Drawing.Point(105, 23);
+            this.chkMtext.Name = "chkMtext";
+            this.chkMtext.Size = new System.Drawing.Size(56, 17);
+            this.chkMtext.TabIndex = 10;
+            this.chkMtext.Text = "MText";
+            this.chkMtext.UseVisualStyleBackColor = true;
+            this.chkMtext.CheckedChanged += new System.EventHandler(this.chkMtext_CheckedChanged);
             // 
             // cbxSelTag
             // 
             this.cbxSelTag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSelTag.FormattingEnabled = true;
-            this.cbxSelTag.Location = new System.Drawing.Point(19, 112);
+            this.cbxSelTag.Location = new System.Drawing.Point(19, 137);
             this.cbxSelTag.Name = "cbxSelTag";
             this.cbxSelTag.Size = new System.Drawing.Size(188, 21);
-            this.cbxSelTag.TabIndex = 1;
+            this.cbxSelTag.TabIndex = 6;
+            // 
+            // chkSelBlock
+            // 
+            this.chkSelBlock.AutoSize = true;
+            this.chkSelBlock.Location = new System.Drawing.Point(19, 51);
+            this.chkSelBlock.Name = "chkSelBlock";
+            this.chkSelBlock.Size = new System.Drawing.Size(53, 17);
+            this.chkSelBlock.TabIndex = 9;
+            this.chkSelBlock.Text = "Block";
+            this.chkSelBlock.UseVisualStyleBackColor = true;
+            this.chkSelBlock.CheckedChanged += new System.EventHandler(this.chkSelBlock_CheckedChanged);
+            // 
+            // chkSelText
+            // 
+            this.chkSelText.AutoSize = true;
+            this.chkSelText.Location = new System.Drawing.Point(19, 24);
+            this.chkSelText.Name = "chkSelText";
+            this.chkSelText.Size = new System.Drawing.Size(47, 17);
+            this.chkSelText.TabIndex = 8;
+            this.chkSelText.Text = "Text";
+            this.chkSelText.UseVisualStyleBackColor = true;
+            this.chkSelText.CheckedChanged += new System.EventHandler(this.chkSelText_CheckedChanged);
             // 
             // cbxSelBlk
             // 
             this.cbxSelBlk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSelBlk.FormattingEnabled = true;
-            this.cbxSelBlk.Location = new System.Drawing.Point(19, 68);
+            this.cbxSelBlk.Location = new System.Drawing.Point(19, 93);
             this.cbxSelBlk.Name = "cbxSelBlk";
             this.cbxSelBlk.Size = new System.Drawing.Size(258, 21);
-            this.cbxSelBlk.TabIndex = 1;
+            this.cbxSelBlk.TabIndex = 3;
             this.cbxSelBlk.SelectedIndexChanged += new System.EventHandler(this.cbxSelBlk_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 96);
+            this.label11.Location = new System.Drawing.Point(16, 121);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(127, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Attribute Reference Tag :";
+            this.label11.Size = new System.Drawing.Size(74, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Tag Attribute :";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 52);
+            this.label10.Location = new System.Drawing.Point(16, 77);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(178, 13);
-            this.label10.TabIndex = 0;
+            this.label10.TabIndex = 2;
             this.label10.Text = "Data Block Reference pada Model :";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(283, 67);
+            this.button3.Image = global::AcNomorAtribut.Properties.Resources.Select;
+            this.button3.Location = new System.Drawing.Point(283, 92);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(23, 23);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "button1";
+            this.button3.TabIndex = 4;
             this.button3.UseVisualStyleBackColor = true;
             // 
             // tabPage3
@@ -679,10 +706,10 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Location = new System.Drawing.Point(6, 115);
+            this.groupBox4.Location = new System.Drawing.Point(6, 148);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(339, 145);
-            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Data Attribute Reference";
             // 
@@ -695,8 +722,8 @@
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Location = new System.Drawing.Point(6, 8);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(339, 101);
-            this.groupBox3.TabIndex = 2;
+            this.groupBox3.Size = new System.Drawing.Size(339, 134);
+            this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Pilih Objek";
             // 
@@ -706,7 +733,7 @@
             this.radioButton3.Location = new System.Drawing.Point(19, 19);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(105, 17);
-            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabIndex = 0;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Block Reference";
             this.radioButton3.UseVisualStyleBackColor = true;
@@ -717,7 +744,7 @@
             this.radioButton1.Location = new System.Drawing.Point(142, 19);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(46, 17);
-            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Text";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -729,7 +756,7 @@
             this.cbxAutoBlock.Location = new System.Drawing.Point(19, 68);
             this.cbxAutoBlock.Name = "cbxAutoBlock";
             this.cbxAutoBlock.Size = new System.Drawing.Size(192, 21);
-            this.cbxAutoBlock.TabIndex = 1;
+            this.cbxAutoBlock.TabIndex = 3;
             // 
             // label8
             // 
@@ -737,16 +764,16 @@
             this.label8.Location = new System.Drawing.Point(16, 52);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 13);
-            this.label8.TabIndex = 0;
+            this.label8.TabIndex = 2;
             this.label8.Text = "Block pada Model :";
             // 
             // button2
             // 
+            this.button2.Image = global::AcNomorAtribut.Properties.Resources.Select;
             this.button2.Location = new System.Drawing.Point(217, 67);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(23, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button1";
+            this.button2.TabIndex = 4;
             this.button2.UseVisualStyleBackColor = true;
             // 
             // tabPage4
@@ -762,7 +789,7 @@
             // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.comboBox4);
+            this.groupBox10.Controls.Add(this.cbxAlignment);
             this.groupBox10.Controls.Add(this.cbxStyles);
             this.groupBox10.Controls.Add(this.label9);
             this.groupBox10.Controls.Add(this.label12);
@@ -773,18 +800,30 @@
             this.groupBox10.Location = new System.Drawing.Point(6, 8);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(339, 209);
-            this.groupBox10.TabIndex = 4;
+            this.groupBox10.TabIndex = 0;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Properti Teks";
             // 
-            // comboBox4
+            // cbxAlignment
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(19, 91);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(188, 21);
-            this.comboBox4.TabIndex = 1;
+            this.cbxAlignment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxAlignment.FormattingEnabled = true;
+            this.cbxAlignment.Items.AddRange(new object[] {
+            "Item1",
+            "Item2",
+            "Item3",
+            "Item4",
+            "Item5",
+            "Item6",
+            "Item7",
+            "Item8",
+            "Item9",
+            "Item10",
+            "Item11"});
+            this.cbxAlignment.Location = new System.Drawing.Point(19, 91);
+            this.cbxAlignment.Name = "cbxAlignment";
+            this.cbxAlignment.Size = new System.Drawing.Size(188, 21);
+            this.cbxAlignment.TabIndex = 3;
             // 
             // cbxStyles
             // 
@@ -801,7 +840,7 @@
             this.label9.Location = new System.Drawing.Point(16, 75);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 13);
-            this.label9.TabIndex = 0;
+            this.label9.TabIndex = 2;
             this.label9.Text = "Text Alignment :";
             // 
             // label12
@@ -819,7 +858,7 @@
             this.txtRot.MaxLength = 5;
             this.txtRot.Name = "txtRot";
             this.txtRot.Size = new System.Drawing.Size(55, 20);
-            this.txtRot.TabIndex = 1;
+            this.txtRot.TabIndex = 7;
             // 
             // label14
             // 
@@ -827,7 +866,7 @@
             this.label14.Location = new System.Drawing.Point(15, 164);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(47, 13);
-            this.label14.TabIndex = 0;
+            this.label14.TabIndex = 6;
             this.label14.Text = "Rotation";
             // 
             // txtTextHeight
@@ -836,7 +875,7 @@
             this.txtTextHeight.MaxLength = 9;
             this.txtTextHeight.Name = "txtTextHeight";
             this.txtTextHeight.Size = new System.Drawing.Size(55, 20);
-            this.txtTextHeight.TabIndex = 1;
+            this.txtTextHeight.TabIndex = 5;
             // 
             // label13
             // 
@@ -844,22 +883,25 @@
             this.label13.Location = new System.Drawing.Point(15, 131);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(38, 13);
-            this.label13.TabIndex = 0;
+            this.label13.TabIndex = 4;
             this.label13.Text = "Height";
             // 
             // btnOk
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.btnOk, 2);
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOk.Location = new System.Drawing.Point(3, 380);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(164, 24);
-            this.btnOk.TabIndex = 4;
+            this.btnOk.TabIndex = 3;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancel.Location = new System.Drawing.Point(355, 380);
             this.btnCancel.Name = "btnCancel";
@@ -867,6 +909,7 @@
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Batal";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // formIncrementV2
             // 
@@ -874,6 +917,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(535, 407);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formIncrementV2";
             this.Text = ".Net Penomoran Kavling";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -949,8 +993,6 @@
         private System.Windows.Forms.RadioButton radioButton8;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton10;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label11;
@@ -960,7 +1002,7 @@
         private System.Windows.Forms.RadioButton radioButton11;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cbxAlignment;
         private System.Windows.Forms.ComboBox cbxStyles;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
@@ -976,9 +1018,13 @@
         internal System.Windows.Forms.TextBox txtValue;
         internal System.Windows.Forms.TextBox txtSuffix;
         internal System.Windows.Forms.TextBox txtPrefix;
-        internal System.Windows.Forms.TextBox textBox4;
+        internal System.Windows.Forms.TextBox txtSeparator;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
         internal System.Windows.Forms.ComboBox cbxAutoBlock;
+        private System.Windows.Forms.CheckBox chkHex;
+        private System.Windows.Forms.CheckBox chkMtext;
+        private System.Windows.Forms.CheckBox chkSelBlock;
+        private System.Windows.Forms.CheckBox chkSelText;
     }
 }
