@@ -53,12 +53,12 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.txtBlkScale = new System.Windows.Forms.TextBox();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.objUserScale = new System.Windows.Forms.RadioButton();
+            this.objScale = new System.Windows.Forms.RadioButton();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.txtBlkRot = new System.Windows.Forms.TextBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.ObjUserRot = new System.Windows.Forms.RadioButton();
+            this.objRot = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbxAttrib = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -374,8 +374,8 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.txtBlkScale);
-            this.groupBox7.Controls.Add(this.radioButton7);
-            this.groupBox7.Controls.Add(this.radioButton8);
+            this.groupBox7.Controls.Add(this.objUserScale);
+            this.groupBox7.Controls.Add(this.objScale);
             this.groupBox7.Location = new System.Drawing.Point(11, 70);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(321, 45);
@@ -392,33 +392,33 @@
             this.txtBlkScale.TabIndex = 2;
             this.txtBlkScale.Text = "1";
             // 
-            // radioButton7
+            // objUserScale
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(163, 19);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(85, 17);
-            this.radioButton7.TabIndex = 1;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Skala Global";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.objUserScale.AutoSize = true;
+            this.objUserScale.Checked = true;
+            this.objUserScale.Location = new System.Drawing.Point(163, 19);
+            this.objUserScale.Name = "objUserScale";
+            this.objUserScale.Size = new System.Drawing.Size(85, 17);
+            this.objUserScale.TabIndex = 1;
+            this.objUserScale.TabStop = true;
+            this.objUserScale.Text = "Skala Global";
+            this.objUserScale.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
+            // objScale
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(8, 19);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(88, 17);
-            this.radioButton8.TabIndex = 0;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Sesuai Objek";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.objScale.AutoSize = true;
+            this.objScale.Location = new System.Drawing.Point(8, 19);
+            this.objScale.Name = "objScale";
+            this.objScale.Size = new System.Drawing.Size(88, 17);
+            this.objScale.TabIndex = 0;
+            this.objScale.Text = "Sesuai Objek";
+            this.objScale.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.txtBlkRot);
-            this.groupBox6.Controls.Add(this.radioButton6);
-            this.groupBox6.Controls.Add(this.radioButton5);
+            this.groupBox6.Controls.Add(this.ObjUserRot);
+            this.groupBox6.Controls.Add(this.objRot);
             this.groupBox6.Location = new System.Drawing.Point(11, 19);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(321, 45);
@@ -435,27 +435,27 @@
             this.txtBlkRot.TabIndex = 2;
             this.txtBlkRot.Text = "0";
             // 
-            // radioButton6
+            // ObjUserRot
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(163, 19);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(90, 17);
-            this.radioButton6.TabIndex = 1;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "User Rotation";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.ObjUserRot.AutoSize = true;
+            this.ObjUserRot.Checked = true;
+            this.ObjUserRot.Location = new System.Drawing.Point(163, 19);
+            this.ObjUserRot.Name = "ObjUserRot";
+            this.ObjUserRot.Size = new System.Drawing.Size(90, 17);
+            this.ObjUserRot.TabIndex = 1;
+            this.ObjUserRot.TabStop = true;
+            this.ObjUserRot.Text = "User Rotation";
+            this.ObjUserRot.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // objRot
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(8, 19);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(88, 17);
-            this.radioButton5.TabIndex = 0;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Sesuai Objek";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.objRot.AutoSize = true;
+            this.objRot.Location = new System.Drawing.Point(8, 19);
+            this.objRot.Name = "objRot";
+            this.objRot.Size = new System.Drawing.Size(88, 17);
+            this.objRot.TabIndex = 0;
+            this.objRot.Text = "Sesuai Objek";
+            this.objRot.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -833,6 +833,7 @@
             this.cbxStyles.Name = "cbxStyles";
             this.cbxStyles.Size = new System.Drawing.Size(258, 21);
             this.cbxStyles.TabIndex = 1;
+            this.cbxStyles.SelectedIndexChanged += new System.EventHandler(this.cbxStyles_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -984,13 +985,13 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton ObjUserRot;
+        private System.Windows.Forms.RadioButton objRot;
         private System.Windows.Forms.TextBox txtBlkRot;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox txtBlkScale;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton objUserScale;
+        private System.Windows.Forms.RadioButton objScale;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label10;
@@ -1002,8 +1003,6 @@
         private System.Windows.Forms.RadioButton radioButton11;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.ComboBox cbxAlignment;
-        private System.Windows.Forms.ComboBox cbxStyles;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtRot;
@@ -1026,5 +1025,7 @@
         private System.Windows.Forms.CheckBox chkMtext;
         private System.Windows.Forms.CheckBox chkSelBlock;
         private System.Windows.Forms.CheckBox chkSelText;
+        internal System.Windows.Forms.ComboBox cbxStyles;
+        internal System.Windows.Forms.ComboBox cbxAlignment;
     }
 }

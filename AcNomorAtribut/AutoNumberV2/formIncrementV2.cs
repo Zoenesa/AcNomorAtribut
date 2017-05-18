@@ -140,11 +140,12 @@ namespace AcBlockAtributeIncrement
             this.TextHeight = this._db.Textsize;
             this._chkBoxes = new Dictionary<int, CheckBox>()
             {
-                { 1, this.chkAngka },
+                { 1, chkAngka },
                 { 2, chkKecil },
                 { 3, chkKapital },
                 { 4, chkRomawi }
             };
+
             this._chkEntTypes = new Dictionary<int, CheckBox>()
             {
                 { 1, this.chkSelText }, { 2, this.chkMtext }, { 4, this.chkSelBlock }
@@ -156,6 +157,7 @@ namespace AcBlockAtributeIncrement
                 this.cbxBlock.DataSource = blockwithAttribute;
                 this.BlockScale = 1;
                 this.BlockRotation = 0;
+                this.BlockRotation = (objRot.Checked ? 1 : this.BlockRotation);
                 this.cbxSelBlk.DataSource = blockwithAttribute;
                 if (blockwithAttribute != null && blockwithAttribute.Length != 0)
                 {
@@ -418,6 +420,8 @@ namespace AcBlockAtributeIncrement
                 return;
             }
             BlockReference bRef = pEntRes.ObjectId.GetObject<BlockReference>();
+            this.BlockRotation = (objRot.Checked ? bRef.Rotation : Converter.StringToAngle(txtRot.Text));
+            txtRot.Text = Converter.AngleToString(bRef.Rotation);
             Autodesk.AutoCAD.DatabaseServices.AttributeCollection attRefColl = bRef.AttributeCollection;
             if (attRefColl == null || attRefColl.Count == 0)
             {
@@ -439,6 +443,23 @@ namespace AcBlockAtributeIncrement
                 from kvp in this._chkEntTypes
                 where kvp.Value.Checked
                 select kvp.Key).Sum();
+            this.StartValue = this.txtValue.Text;
+            this.Separator = this.txtSeparator.Text;
+            if (this.TypeFlag == 0)
+            {
+                AcAp.ShowAlertDialog("Tidak ada Block.");
+                return;
+            }
+            if (!this.IsValidString(this.StartValue ,  this.Separator))
+            {
+                AcAp.ShowAlertDialog("Invalid Nilai");
+                this.txtValue.Select();
+                return;
+            }
+            if (this.TypeFlag == 16 && int.TryParse(this.StartValue, out num))
+            {
+                this.StartValue = ((Romawi)num).ToString();
+            }
             base.DialogResult = DialogResult.OK;
             base.Close();
         }
@@ -510,6 +531,11 @@ namespace AcBlockAtributeIncrement
                 throw new ArgumentException();
             }
             return num2 / num1;
+        }
+
+        private void cbxStyles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private bool IsValidString(string str, string val)

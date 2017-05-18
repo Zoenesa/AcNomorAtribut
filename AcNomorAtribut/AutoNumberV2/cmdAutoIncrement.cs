@@ -86,13 +86,27 @@ namespace AcBlockAtributeIncrement
                     {
                         case 0:
                             {
-                                
+                                this.IncrementAttribute((BlockTableRecord)this.dlg.cbxBlock.SelectedItem, this.dlg.cbxAttrib.SelectedIndex, prefix, suffix);
+                            }
+                            break;
+                        case 1:
+                            {
+                                this.IncrementText(this.dlg.cbxStyles.Text, this.dlg.cbxAlignment.Text, prefix, suffix);
+                            }
+                            break;
+                        case 2:
+                            {
+
                             }
                             break;
                         default:
+                            {
+                                
+                            }
                             break;
                     }
                 }
+                tr.Commit();
             }
         }
 
@@ -157,6 +171,23 @@ namespace AcBlockAtributeIncrement
             str = (value == value.ToUpper() ? "X" : "x");
             int length = value.Length;
             return typeFlag.ToString(string.Concat(str, length.ToString()));
+        }
+
+        private void IncrementText(string styleName, string Justifi, string prefix, string suffix)
+        {
+            string startvalue = this.dlg.StartValue;
+            int num = 0;
+            Stack<ObjectId> objectIds = new Stack<ObjectId>();
+            Stack<string> strs = new Stack<string>();
+            ObjectId item = this.db.TextStyleTableId.GetObject<TextStyleTable>()[styleName];
+            bool flag = Justifi == "Left";
+            while (true)
+            {
+                using (DBText dbText = new DBText())
+                {
+
+                }
+            }
         }
 
         public void IncrementAttribute(BlockTableRecord TableRecord, int index, string prefix, string suffix)
