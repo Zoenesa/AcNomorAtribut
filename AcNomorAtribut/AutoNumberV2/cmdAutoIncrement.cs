@@ -110,7 +110,7 @@ namespace AcBlockAtributeIncrement
             }
         }
 
-        private string IncrementAbjad(string value)
+        private string IncrementAlpanumerik(string value)
         {
             int num;
             int typeFlag = this.dlg.TypeFlag;
@@ -163,7 +163,7 @@ namespace AcBlockAtributeIncrement
             {
                 if (typeFlag != 16)
                 {
-                    return this.IncrementAbjad(value);
+                    return this.IncrementAlpanumerik(value);
                 }
                 return ((Romawi)value + this.dlg.IncrValue).ToString();
             }
@@ -183,11 +183,52 @@ namespace AcBlockAtributeIncrement
             bool flag = Justifi == "Left";
             while (true)
             {
-                using (DBText dbText = new DBText())
+                using (DBText dBText = new DBText())
                 {
-
+                    dBText.Position = Point3d.Origin;
+                    dBText.TextStyleId = item;
+                    dBText.Justify = this.justify[Justifi];
+                    dBText.Height = this.dlg.TextHeight;
+                    dBText.Rotation = this.dlg.TextRotation;
+                    dBText.TextString = string.Concat(prefix, startvalue, suffix);
+                    dBText.TransformBy(this.ed.CurrentUserCoordinateSystem);
+                    if (item.GetObject<TextStyleTableRecord>().Annotative == AnnotativeStates.True)
+                    {
+                        dBText.Annotative = AnnotativeStates.True;
+                        ObjectContextCollection contextCollection = this.db.ObjectContextManager.GetContextCollection("ACDB_ANNOTATIONSCALES");
+                        Autodesk.AutoCAD.Internal.ObjectContexts.AddContext(dBText, contextCollection.CurrentContext);
+                    }
+                    TextJig textJig = new TextJig(dBText, num, flag, this.db);
+                    PromptResult promptResult = this.ed.Drag(textJig);
+                    if (promptResult.Status == PromptStatus.Keyword)
+                    {
+                        if (num != 0)
+                        {
+                            objectIds.Pop().GetObject<DBText>(OpenMode.ForWrite).Erase();
+                            this.db.TransactionManager.QueueForGraphicsFlush();
+                            startvalue = strs.Pop();
+                            num--;
+                        }
+                        else
+                        {
+                            this.ed.WriteMessage(("\nNothing to undo !"));
+                        }
+                    }
+                    else if (promptResult.Status == PromptStatus.OK)
+                    {
+                        strs.Push(startvalue);
+                        objectIds.Push(this.db.GetCurrentSpace(OpenMode.ForWrite).Add(dBText));
+                        this.db.TransactionManager.QueueForGraphicsFlush();
+                        startvalue = this.Increment(startvalue);
+                        num++;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
             }
+            this.dlg.txtValue.Text = startvalue;
         }
 
         public void IncrementAttribute(BlockTableRecord TableRecord, int index, string prefix, string suffix)
