@@ -29,8 +29,9 @@ namespace AcBlockAtributeIncrement
             }
             try
             {
+                ObjectId objId1 = owner.AppendEntity(ent);
                 topTr.AddNewlyCreatedDBObject(ent, true);
-                id = owner.AppendEntity(ent);
+                id = objId1;
             }
             catch 
             {

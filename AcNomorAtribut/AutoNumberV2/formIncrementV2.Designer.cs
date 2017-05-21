@@ -102,6 +102,14 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lblTag1 = new System.Windows.Forms.Label();
+            this.textString1 = new System.Windows.Forms.TextBox();
+            this.lblTag2 = new System.Windows.Forms.Label();
+            this.textString2 = new System.Windows.Forms.TextBox();
+            this.lblTag3 = new System.Windows.Forms.Label();
+            this.textString3 = new System.Windows.Forms.TextBox();
+            this.lblTag4 = new System.Windows.Forms.Label();
+            this.textString4 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.grupTipeValue.SuspendLayout();
             this.grupParameter.SuspendLayout();
@@ -141,7 +149,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.04504F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.95496F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(535, 407);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(535, 447);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // grupTipeValue
@@ -155,7 +163,7 @@
             this.grupTipeValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grupTipeValue.Location = new System.Drawing.Point(3, 3);
             this.grupTipeValue.Name = "grupTipeValue";
-            this.grupTipeValue.Size = new System.Drawing.Size(164, 164);
+            this.grupTipeValue.Size = new System.Drawing.Size(164, 182);
             this.grupTipeValue.TabIndex = 0;
             this.grupTipeValue.TabStop = false;
             this.grupTipeValue.Text = "Format Nilai";
@@ -235,9 +243,9 @@
             this.grupParameter.Controls.Add(this.label2);
             this.grupParameter.Controls.Add(this.label1);
             this.grupParameter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grupParameter.Location = new System.Drawing.Point(3, 173);
+            this.grupParameter.Location = new System.Drawing.Point(3, 191);
             this.grupParameter.Name = "grupParameter";
-            this.grupParameter.Size = new System.Drawing.Size(164, 201);
+            this.grupParameter.Size = new System.Drawing.Size(164, 223);
             this.grupParameter.TabIndex = 1;
             this.grupParameter.TabStop = false;
             this.grupParameter.Text = "Parameter Penambahan";
@@ -344,18 +352,17 @@
             this.tabControl1.Name = "tabControl1";
             this.tableLayoutPanel1.SetRowSpan(this.tabControl1, 2);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(359, 371);
+            this.tabControl1.Size = new System.Drawing.Size(359, 411);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox5);
-            this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(351, 345);
+            this.tabPage1.Size = new System.Drawing.Size(351, 385);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Pilihan Objek Attribute";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -364,7 +371,7 @@
             // 
             this.groupBox5.Controls.Add(this.groupBox7);
             this.groupBox5.Controls.Add(this.groupBox6);
-            this.groupBox5.Location = new System.Drawing.Point(7, 215);
+            this.groupBox5.Location = new System.Drawing.Point(7, 254);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(338, 124);
             this.groupBox5.TabIndex = 2;
@@ -438,22 +445,22 @@
             // ObjUserRot
             // 
             this.ObjUserRot.AutoSize = true;
-            this.ObjUserRot.Checked = true;
             this.ObjUserRot.Location = new System.Drawing.Point(163, 19);
             this.ObjUserRot.Name = "ObjUserRot";
             this.ObjUserRot.Size = new System.Drawing.Size(90, 17);
             this.ObjUserRot.TabIndex = 1;
-            this.ObjUserRot.TabStop = true;
             this.ObjUserRot.Text = "User Rotation";
             this.ObjUserRot.UseVisualStyleBackColor = true;
             // 
             // objRot
             // 
             this.objRot.AutoSize = true;
+            this.objRot.Checked = true;
             this.objRot.Location = new System.Drawing.Point(8, 19);
             this.objRot.Name = "objRot";
             this.objRot.Size = new System.Drawing.Size(88, 17);
             this.objRot.TabIndex = 0;
+            this.objRot.TabStop = true;
             this.objRot.Text = "Sesuai Objek";
             this.objRot.UseVisualStyleBackColor = true;
             // 
@@ -461,9 +468,17 @@
             // 
             this.groupBox2.Controls.Add(this.cbxAttrib);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(7, 126);
+            this.groupBox2.Controls.Add(this.textString4);
+            this.groupBox2.Controls.Add(this.lblTag4);
+            this.groupBox2.Controls.Add(this.textString3);
+            this.groupBox2.Controls.Add(this.lblTag3);
+            this.groupBox2.Controls.Add(this.textString2);
+            this.groupBox2.Controls.Add(this.lblTag2);
+            this.groupBox2.Controls.Add(this.textString1);
+            this.groupBox2.Controls.Add(this.lblTag1);
+            this.groupBox2.Location = new System.Drawing.Point(6, 66);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(338, 83);
+            this.groupBox2.Size = new System.Drawing.Size(326, 168);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pilih Attribute";
@@ -482,19 +497,20 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(16, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.Size = new System.Drawing.Size(137, 13);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Tag Attribute :";
+            this.label6.Text = "Tag Attribute To Increment:";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbxBlock);
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnBrowse);
             this.groupBox1.Controls.Add(this.btnSelBlk);
             this.groupBox1.Location = new System.Drawing.Point(7, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(338, 112);
+            this.groupBox1.Size = new System.Drawing.Size(338, 241);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pilih Objek";
@@ -503,7 +519,7 @@
             // 
             this.cbxBlock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBlock.FormattingEnabled = true;
-            this.cbxBlock.Location = new System.Drawing.Point(19, 79);
+            this.cbxBlock.Location = new System.Drawing.Point(19, 37);
             this.cbxBlock.Name = "cbxBlock";
             this.cbxBlock.Size = new System.Drawing.Size(192, 21);
             this.cbxBlock.TabIndex = 2;
@@ -514,7 +530,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 63);
+            this.label7.Location = new System.Drawing.Point(16, 21);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(178, 13);
             this.label7.TabIndex = 1;
@@ -522,9 +538,9 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(19, 19);
+            this.btnBrowse.Location = new System.Drawing.Point(262, 36);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(192, 23);
+            this.btnBrowse.Size = new System.Drawing.Size(70, 23);
             this.btnBrowse.TabIndex = 0;
             this.btnBrowse.Text = "Browse Eksternal Block";
             this.btnBrowse.UseVisualStyleBackColor = true;
@@ -533,7 +549,7 @@
             // btnSelBlk
             // 
             this.btnSelBlk.Image = global::AcNomorAtribut.Properties.Resources.Select;
-            this.btnSelBlk.Location = new System.Drawing.Point(217, 78);
+            this.btnSelBlk.Location = new System.Drawing.Point(217, 36);
             this.btnSelBlk.Name = "btnSelBlk";
             this.btnSelBlk.Size = new System.Drawing.Size(23, 23);
             this.btnSelBlk.TabIndex = 3;
@@ -547,7 +563,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(351, 345);
+            this.tabPage2.Size = new System.Drawing.Size(351, 385);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pilihan pada Model";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -782,7 +798,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(351, 345);
+            this.tabPage4.Size = new System.Drawing.Size(351, 385);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Text";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -892,7 +908,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.btnOk, 2);
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOk.Location = new System.Drawing.Point(3, 380);
+            this.btnOk.Location = new System.Drawing.Point(3, 420);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(164, 24);
             this.btnOk.TabIndex = 3;
@@ -904,7 +920,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancel.Location = new System.Drawing.Point(355, 380);
+            this.btnCancel.Location = new System.Drawing.Point(355, 420);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(177, 24);
             this.btnCancel.TabIndex = 4;
@@ -912,12 +928,77 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // lblTag1
+            // 
+            this.lblTag1.AutoSize = true;
+            this.lblTag1.Location = new System.Drawing.Point(19, 67);
+            this.lblTag1.Name = "lblTag1";
+            this.lblTag1.Size = new System.Drawing.Size(33, 13);
+            this.lblTag1.TabIndex = 6;
+            this.lblTag1.Text = "Prefix";
+            // 
+            // textString1
+            // 
+            this.textString1.Location = new System.Drawing.Point(112, 63);
+            this.textString1.Name = "textString1";
+            this.textString1.Size = new System.Drawing.Size(81, 20);
+            this.textString1.TabIndex = 7;
+            // 
+            // lblTag2
+            // 
+            this.lblTag2.AutoSize = true;
+            this.lblTag2.Location = new System.Drawing.Point(19, 93);
+            this.lblTag2.Name = "lblTag2";
+            this.lblTag2.Size = new System.Drawing.Size(33, 13);
+            this.lblTag2.TabIndex = 6;
+            this.lblTag2.Text = "Prefix";
+            // 
+            // textString2
+            // 
+            this.textString2.Location = new System.Drawing.Point(112, 89);
+            this.textString2.Name = "textString2";
+            this.textString2.Size = new System.Drawing.Size(81, 20);
+            this.textString2.TabIndex = 7;
+            // 
+            // lblTag3
+            // 
+            this.lblTag3.AutoSize = true;
+            this.lblTag3.Location = new System.Drawing.Point(19, 119);
+            this.lblTag3.Name = "lblTag3";
+            this.lblTag3.Size = new System.Drawing.Size(33, 13);
+            this.lblTag3.TabIndex = 6;
+            this.lblTag3.Text = "Prefix";
+            // 
+            // textString3
+            // 
+            this.textString3.Location = new System.Drawing.Point(112, 115);
+            this.textString3.Name = "textString3";
+            this.textString3.Size = new System.Drawing.Size(81, 20);
+            this.textString3.TabIndex = 7;
+            // 
+            // lblTag4
+            // 
+            this.lblTag4.AutoSize = true;
+            this.lblTag4.Location = new System.Drawing.Point(19, 145);
+            this.lblTag4.Name = "lblTag4";
+            this.lblTag4.Size = new System.Drawing.Size(33, 13);
+            this.lblTag4.TabIndex = 6;
+            this.lblTag4.Text = "Prefix";
+            // 
+            // textString4
+            // 
+            this.textString4.Location = new System.Drawing.Point(112, 141);
+            this.textString4.Name = "textString4";
+            this.textString4.Size = new System.Drawing.Size(81, 20);
+            this.textString4.TabIndex = 7;
+            // 
             // formIncrementV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 407);
+            this.ClientSize = new System.Drawing.Size(535, 447);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formIncrementV2";
             this.Text = ".Net Penomoran Kavling";
@@ -1027,5 +1108,13 @@
         private System.Windows.Forms.CheckBox chkSelText;
         internal System.Windows.Forms.ComboBox cbxStyles;
         internal System.Windows.Forms.ComboBox cbxAlignment;
+        internal System.Windows.Forms.TextBox textString2;
+        private System.Windows.Forms.Label lblTag2;
+        internal System.Windows.Forms.TextBox textString1;
+        private System.Windows.Forms.Label lblTag1;
+        internal System.Windows.Forms.TextBox textString4;
+        private System.Windows.Forms.Label lblTag4;
+        internal System.Windows.Forms.TextBox textString3;
+        private System.Windows.Forms.Label lblTag3;
     }
 }

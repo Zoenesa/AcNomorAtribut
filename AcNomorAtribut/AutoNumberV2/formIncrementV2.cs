@@ -412,6 +412,7 @@ namespace AcBlockAtributeIncrement
         {
             Editor editor = AcAp.DocumentManager.MdiActiveDocument.Editor;
             PromptEntityOptions pEnt = new PromptEntityOptions("\nSelect Block: ");
+            pEnt.AllowNone = true;
             pEnt.SetRejectMessage("Selected Object is not a Block!.");
             pEnt.AddAllowedClass(typeof(BlockReference), true);
             PromptEntityResult pEntRes = editor.GetEntity(pEnt);
@@ -420,7 +421,51 @@ namespace AcBlockAtributeIncrement
                 return;
             }
             BlockReference bRef = pEntRes.ObjectId.GetObject<BlockReference>();
-            this.BlockRotation = (objRot.Checked ? bRef.Rotation : Converter.StringToAngle(txtRot.Text));
+            Dictionary<string, string> dicTag = new Dictionary<string, string>();
+            for (int i = 0; i < bRef.AttributeCollection.Count; i++)
+            {
+                string strTag = bRef.AttributeCollection[i].GetObject<AttributeReference>(OpenMode.ForRead).Tag;
+                string strTextString = bRef.AttributeCollection[i].GetObject<AttributeReference>(OpenMode.ForRead).TextString;
+                dicTag.Add(strTag, strTextString);
+                switch (i)
+                {
+                    case 0:
+                        {
+                            lblTag1.Text = strTag;
+                            textString1.Text = strTextString;
+                        }
+                        break;
+                    case 1:
+                        {
+                            lblTag2.Text = strTag;
+                            textString2.Text = strTextString;
+                        }
+                        break;
+                    case 2:
+                        {
+                            lblTag3.Text = strTag;
+                            textString3.Text = strTextString;
+                        }
+                        break;
+                    case 3:
+                        {
+                            lblTag4.Text = strTag;
+                            textString4.Text = strTextString;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (objRot.Checked)
+            {
+                this.BlockRotation = bRef.Rotation;
+                txtBlkRot.Text = Converter.AngleToString(bRef.Rotation);
+            }
+            else 
+            {
+                this.BlockRotation = Converter.StringToAngle(txtRot.Text);
+            }
             txtRot.Text = Converter.AngleToString(bRef.Rotation);
             Autodesk.AutoCAD.DatabaseServices.AttributeCollection attRefColl = bRef.AttributeCollection;
             if (attRefColl == null || attRefColl.Count == 0)
@@ -461,7 +506,7 @@ namespace AcBlockAtributeIncrement
                 this.StartValue = ((Romawi)num).ToString();
             }
             base.DialogResult = DialogResult.OK;
-            base.Close();
+            //base.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
