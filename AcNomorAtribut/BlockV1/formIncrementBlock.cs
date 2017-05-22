@@ -19,6 +19,11 @@ namespace AcNomorAtribut
         {
             InitializeComponent();
             btnInsert.Click += new EventHandler(btnInsert_Click);
+            this.cbListBlok.SelectedIndexChanged += new System.EventHandler(this.cbListBlok_SelectedIndexChanged);
+            cbListBlok.DisplayMember = "Name";
+            cbListAttribute.DisplayMember = "Tag";
+            cbListToIncrement.DisplayMember = "Tag";
+
         }
          
         private int _increment;
@@ -27,23 +32,12 @@ namespace AcNomorAtribut
             get { return _increment; }
             set { _increment = value; }
         }
- 
-        public PromptPointResult PromptForPoint(string promptMessage, bool useDashedLine = false, bool useBasePoint = false, Point3d basePoint = new Point3d(), bool allowNone = true)
-        {
-            var pointOptions = new PromptPointOptions(promptMessage);
-            if (useBasePoint)
-            {
-                pointOptions.UseBasePoint = true;
-                pointOptions.BasePoint = _editor.GetPoint("Insert Base Point: ").Value;
-                pointOptions.AllowNone = allowNone;
-            }
 
-            if (useDashedLine)
-            {
-                pointOptions.UseDashedLine = true;
-            }
-            var pointResult = _editor.GetPoint(pointOptions);
-            return pointResult;
+        private double _areaBound;
+        private double GetAreaBound
+        {
+            get { return _areaBound; }
+            set { _areaBound = value; }
         }
 
         Document doc;
@@ -56,7 +50,8 @@ namespace AcNomorAtribut
             db = doc.Database;
             _editor = doc.Editor;
             lanjut = true;
-            //edUtils = new EditorUtilities.classEditorHelper(doc);
+            BlockTableRecord[] listBlockWithAtribute = db.GetBlocksWithAttribute();
+            cbListBlok.DataSource = listBlockWithAtribute;
         }
 
         int numinc = 0;
@@ -64,33 +59,35 @@ namespace AcNomorAtribut
         private void InsertCommand()
         {
             
-            PromptKeywordOptions opS = new PromptKeywordOptions("");
-            opS.Message = ("Insert Blok");
-            opS.Keywords.Add("Insert", "I", "Insert", true, true);
-            opS.Keywords.Add("Replace", "p", "Replace", true, true);
-            opS.Keywords.Add("BasePoint", "B", "Base Point", true, true);
+            //PromptKeywordOptions opS = new PromptKeywordOptions("");
+            //opS.Message = ("Insert Blok");
+            //opS.Keywords.Add("Insert", "I", "Insert", true, true);
+            //opS.Keywords.Add("Replace", "p", "Replace", true, true);
+            //opS.Keywords.Add("BasePoint", "B", "Base Point", true, true);
             
-            PromptResult pRes = _editor.GetKeywords(opS);
-            if (pRes.Status == PromptStatus.Cancel)
-            {
-                lanjut = false;
-                return;
-            }
-            else
-            {
-                Point3d ptBase = new Point3d();
-                if (pRes.StringResult == "BasePoint")
-                {
-                    ptBase = _editor.GetPoint("Define Base Point").Value;
-                }
-                PromptPointResult ppRes = PromptForPoint("Pick Internal Point:", true, true, ptBase);
-                if (ppRes.Status == PromptStatus.OK)
-                {
-                    string pointValue = ppRes.Value + numinc.ToString();
-                    numinc = numinc + _increment;
-                    AcAp.ShowAlertDialog(pointValue);
-                }
-            }
+            //PromptResult pRes = _editor.GetKeywords(opS);
+            //if (pRes.Status == PromptStatus.Cancel)
+            //{
+            //    lanjut = false;
+            //    return;
+            //}
+            //else
+            //{
+            //    Point3d ptBase = new Point3d();
+            //    if (pRes.StringResult == "BasePoint")
+            //    {
+            //        ptBase = _editor.GetPoint("Define Base Point").Value;
+            //    }
+            //    PromptPointResult ppRes = PromptForPoint("Pick Internal Point:", true, true, ptBase);
+            //    if (ppRes.Status == PromptStatus.OK)
+            //    {
+            //        string pointValue = ppRes.Value + numinc.ToString();
+            //        numinc = numinc + _increment;
+            //        AcAp.ShowAlertDialog(pointValue);
+            //    }
+            //}
+
+
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -103,6 +100,17 @@ namespace AcNomorAtribut
             }
         }
 
+        private void cbListBlok_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbListAttribute.DataSource = (
+                from att in ((BlockTableRecord)this.cbListBlok.SelectedItem).GetObjects<AttributeDefinition>()
+                where !att.Constant
+                select att).ToArray<AttributeDefinition>();
+            cbListToIncrement.DataSource = (
+                from att in ((BlockTableRecord)this.cbListBlok.SelectedItem).GetObjects<AttributeDefinition>()
+                where !att.Constant
+                select att).ToArray<AttributeDefinition>();
+        }
 
     }
 }

@@ -51,6 +51,7 @@ namespace AcNomorAtribut
                 lb.Dock = DockStyle.Fill;
             }
             base.StartPosition = FormStartPosition.CenterScreen;
+            this.textBox3.Text = TraceArea.ValueAreaBoundaries;
             dlg = base.ShowDialog();
             return dlg;
         }

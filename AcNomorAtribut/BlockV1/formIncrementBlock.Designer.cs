@@ -29,48 +29,48 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIncrement = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.chPrefix = new System.Windows.Forms.CheckBox();
+            this.cchSufix = new System.Windows.Forms.CheckBox();
+            this.chMiddle = new System.Windows.Forms.CheckBox();
+            this.txtSuffix = new System.Windows.Forms.TextBox();
+            this.txtMiddle = new System.Windows.Forms.TextBox();
+            this.txtPrefix = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.rdDefineRotation = new System.Windows.Forms.RadioButton();
+            this.rdFollowRotation = new System.Windows.Forms.RadioButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbListToIncrement = new System.Windows.Forms.ComboBox();
+            this.btnPickBlok = new System.Windows.Forms.Button();
+            this.cbListBlok = new System.Windows.Forms.ComboBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.chDefineAttributeValue = new System.Windows.Forms.CheckBox();
+            this.txtDefineAttributeValue = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdDefineArea = new System.Windows.Forms.RadioButton();
+            this.rdDefineLength = new System.Windows.Forms.RadioButton();
+            this.chDefineCustomAttribute = new System.Windows.Forms.CheckBox();
+            this.cbListAttribute = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txtPrefix = new System.Windows.Forms.TextBox();
-            this.txtMiddle = new System.Windows.Forms.TextBox();
-            this.txtSuffix = new System.Windows.Forms.TextBox();
-            this.txtIncrement = new System.Windows.Forms.TextBox();
-            this.chPrefix = new System.Windows.Forms.CheckBox();
-            this.chMiddle = new System.Windows.Forms.CheckBox();
-            this.cchSufix = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbListBlok = new System.Windows.Forms.ComboBox();
-            this.btnPickBlok = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.chDefineAttributeValue = new System.Windows.Forms.CheckBox();
-            this.cbListAttribute = new System.Windows.Forms.ComboBox();
-            this.txtDefineAttributeValue = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chDefineCustomAttribute = new System.Windows.Forms.CheckBox();
-            this.rdDefineLength = new System.Windows.Forms.RadioButton();
-            this.rdDefineArea = new System.Windows.Forms.RadioButton();
-            this.rdFollowRotation = new System.Windows.Forms.RadioButton();
-            this.rdDefineRotation = new System.Windows.Forms.RadioButton();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -93,6 +93,113 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Incremental Values";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(120, 44);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Suffix";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(66, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Middle";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Prefix";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(32, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Increment";
+            // 
+            // txtIncrement
+            // 
+            this.txtIncrement.Location = new System.Drawing.Point(103, 65);
+            this.txtIncrement.Name = "txtIncrement";
+            this.txtIncrement.Size = new System.Drawing.Size(36, 22);
+            this.txtIncrement.TabIndex = 0;
+            this.txtIncrement.Text = "1";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.chPrefix);
+            this.groupBox5.Controls.Add(this.cchSufix);
+            this.groupBox5.Controls.Add(this.chMiddle);
+            this.groupBox5.Location = new System.Drawing.Point(11, 98);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(213, 52);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Section Increment";
+            // 
+            // chPrefix
+            // 
+            this.chPrefix.AutoSize = true;
+            this.chPrefix.Location = new System.Drawing.Point(10, 22);
+            this.chPrefix.Name = "chPrefix";
+            this.chPrefix.Size = new System.Drawing.Size(54, 17);
+            this.chPrefix.TabIndex = 1;
+            this.chPrefix.Text = "Prefix";
+            this.chPrefix.UseVisualStyleBackColor = true;
+            // 
+            // cchSufix
+            // 
+            this.cchSufix.AutoSize = true;
+            this.cchSufix.Location = new System.Drawing.Point(139, 22);
+            this.cchSufix.Name = "cchSufix";
+            this.cchSufix.Size = new System.Drawing.Size(55, 17);
+            this.cchSufix.TabIndex = 1;
+            this.cchSufix.Text = "Suffix";
+            this.cchSufix.UseVisualStyleBackColor = true;
+            // 
+            // chMiddle
+            // 
+            this.chMiddle.AutoSize = true;
+            this.chMiddle.Location = new System.Drawing.Point(71, 22);
+            this.chMiddle.Name = "chMiddle";
+            this.chMiddle.Size = new System.Drawing.Size(62, 17);
+            this.chMiddle.TabIndex = 1;
+            this.chMiddle.Text = "Middle";
+            this.chMiddle.UseVisualStyleBackColor = true;
+            // 
+            // txtSuffix
+            // 
+            this.txtSuffix.Location = new System.Drawing.Point(119, 19);
+            this.txtSuffix.Name = "txtSuffix";
+            this.txtSuffix.Size = new System.Drawing.Size(36, 22);
+            this.txtSuffix.TabIndex = 0;
+            // 
+            // txtMiddle
+            // 
+            this.txtMiddle.Location = new System.Drawing.Point(68, 19);
+            this.txtMiddle.Name = "txtMiddle";
+            this.txtMiddle.Size = new System.Drawing.Size(36, 22);
+            this.txtMiddle.TabIndex = 0;
+            // 
+            // txtPrefix
+            // 
+            this.txtPrefix.Location = new System.Drawing.Point(18, 19);
+            this.txtPrefix.Name = "txtPrefix";
+            this.txtPrefix.Size = new System.Drawing.Size(36, 22);
+            this.txtPrefix.TabIndex = 0;
+            // 
             // groupBox3
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox3, 2);
@@ -109,6 +216,185 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Block && Attribute";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(95, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Block Reference :";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.rdDefineRotation);
+            this.groupBox7.Controls.Add(this.rdFollowRotation);
+            this.groupBox7.Location = new System.Drawing.Point(222, 37);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(139, 80);
+            this.groupBox7.TabIndex = 0;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Block Rotation";
+            // 
+            // rdDefineRotation
+            // 
+            this.rdDefineRotation.AutoSize = true;
+            this.rdDefineRotation.Location = new System.Drawing.Point(6, 41);
+            this.rdDefineRotation.Name = "rdDefineRotation";
+            this.rdDefineRotation.Size = new System.Drawing.Size(125, 17);
+            this.rdDefineRotation.TabIndex = 2;
+            this.rdDefineRotation.Text = "Define On Drawing";
+            this.rdDefineRotation.UseVisualStyleBackColor = true;
+            // 
+            // rdFollowRotation
+            // 
+            this.rdFollowRotation.AutoSize = true;
+            this.rdFollowRotation.Checked = true;
+            this.rdFollowRotation.Location = new System.Drawing.Point(6, 18);
+            this.rdFollowRotation.Name = "rdFollowRotation";
+            this.rdFollowRotation.Size = new System.Drawing.Size(108, 17);
+            this.rdFollowRotation.TabIndex = 2;
+            this.rdFollowRotation.TabStop = true;
+            this.rdFollowRotation.Text = "Follow Rotation";
+            this.rdFollowRotation.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.cbListToIncrement);
+            this.groupBox4.Location = new System.Drawing.Point(9, 67);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(203, 50);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Attribute For Increment";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Attribute :";
+            // 
+            // cbListToIncrement
+            // 
+            this.cbListToIncrement.FormattingEnabled = true;
+            this.cbListToIncrement.Location = new System.Drawing.Point(80, 19);
+            this.cbListToIncrement.Name = "cbListToIncrement";
+            this.cbListToIncrement.Size = new System.Drawing.Size(110, 21);
+            this.cbListToIncrement.TabIndex = 0;
+            // 
+            // btnPickBlok
+            // 
+            this.btnPickBlok.Location = new System.Drawing.Point(145, 37);
+            this.btnPickBlok.Name = "btnPickBlok";
+            this.btnPickBlok.Size = new System.Drawing.Size(64, 21);
+            this.btnPickBlok.TabIndex = 1;
+            this.btnPickBlok.Text = "Pick";
+            this.btnPickBlok.UseVisualStyleBackColor = true;
+            // 
+            // cbListBlok
+            // 
+            this.cbListBlok.FormattingEnabled = true;
+            this.cbListBlok.Location = new System.Drawing.Point(9, 37);
+            this.cbListBlok.Name = "cbListBlok";
+            this.cbListBlok.Size = new System.Drawing.Size(134, 21);
+            this.cbListBlok.TabIndex = 0;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Controls.Add(this.chDefineAttributeValue);
+            this.groupBox6.Controls.Add(this.txtDefineAttributeValue);
+            this.groupBox6.Controls.Add(this.groupBox2);
+            this.groupBox6.Controls.Add(this.cbListAttribute);
+            this.groupBox6.Location = new System.Drawing.Point(9, 123);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(352, 131);
+            this.groupBox6.TabIndex = 0;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Set For Define Attribute Value";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 46);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Attribute :";
+            // 
+            // chDefineAttributeValue
+            // 
+            this.chDefineAttributeValue.AutoSize = true;
+            this.chDefineAttributeValue.Location = new System.Drawing.Point(6, 21);
+            this.chDefineAttributeValue.Name = "chDefineAttributeValue";
+            this.chDefineAttributeValue.Size = new System.Drawing.Size(146, 17);
+            this.chDefineAttributeValue.TabIndex = 1;
+            this.chDefineAttributeValue.Text = "Define Attribute Value :";
+            this.chDefineAttributeValue.UseVisualStyleBackColor = true;
+            // 
+            // txtDefineAttributeValue
+            // 
+            this.txtDefineAttributeValue.Location = new System.Drawing.Point(222, 42);
+            this.txtDefineAttributeValue.Name = "txtDefineAttributeValue";
+            this.txtDefineAttributeValue.Size = new System.Drawing.Size(98, 22);
+            this.txtDefineAttributeValue.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rdDefineArea);
+            this.groupBox2.Controls.Add(this.rdDefineLength);
+            this.groupBox2.Controls.Add(this.chDefineCustomAttribute);
+            this.groupBox2.Location = new System.Drawing.Point(6, 70);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(314, 46);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Section Define Value Attribute";
+            // 
+            // rdDefineArea
+            // 
+            this.rdDefineArea.AutoSize = true;
+            this.rdDefineArea.Location = new System.Drawing.Point(244, 18);
+            this.rdDefineArea.Name = "rdDefineArea";
+            this.rdDefineArea.Size = new System.Drawing.Size(48, 17);
+            this.rdDefineArea.TabIndex = 2;
+            this.rdDefineArea.TabStop = true;
+            this.rdDefineArea.Text = "Area";
+            this.rdDefineArea.UseVisualStyleBackColor = true;
+            // 
+            // rdDefineLength
+            // 
+            this.rdDefineLength.AutoSize = true;
+            this.rdDefineLength.Location = new System.Drawing.Point(165, 18);
+            this.rdDefineLength.Name = "rdDefineLength";
+            this.rdDefineLength.Size = new System.Drawing.Size(61, 17);
+            this.rdDefineLength.TabIndex = 2;
+            this.rdDefineLength.TabStop = true;
+            this.rdDefineLength.Text = "Length";
+            this.rdDefineLength.UseVisualStyleBackColor = true;
+            // 
+            // chDefineCustomAttribute
+            // 
+            this.chDefineCustomAttribute.AutoSize = true;
+            this.chDefineCustomAttribute.Location = new System.Drawing.Point(5, 19);
+            this.chDefineCustomAttribute.Name = "chDefineCustomAttribute";
+            this.chDefineCustomAttribute.Size = new System.Drawing.Size(124, 17);
+            this.chDefineCustomAttribute.TabIndex = 1;
+            this.chDefineCustomAttribute.Text = "Define on Drawing";
+            this.chDefineCustomAttribute.UseVisualStyleBackColor = true;
+            // 
+            // cbListAttribute
+            // 
+            this.cbListAttribute.FormattingEnabled = true;
+            this.cbListAttribute.Location = new System.Drawing.Point(68, 43);
+            this.cbListAttribute.Name = "cbListAttribute";
+            this.cbListAttribute.Size = new System.Drawing.Size(110, 21);
+            this.cbListAttribute.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -153,292 +439,6 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // txtPrefix
-            // 
-            this.txtPrefix.Location = new System.Drawing.Point(18, 19);
-            this.txtPrefix.Name = "txtPrefix";
-            this.txtPrefix.Size = new System.Drawing.Size(36, 22);
-            this.txtPrefix.TabIndex = 0;
-            // 
-            // txtMiddle
-            // 
-            this.txtMiddle.Location = new System.Drawing.Point(68, 19);
-            this.txtMiddle.Name = "txtMiddle";
-            this.txtMiddle.Size = new System.Drawing.Size(36, 22);
-            this.txtMiddle.TabIndex = 0;
-            // 
-            // txtSuffix
-            // 
-            this.txtSuffix.Location = new System.Drawing.Point(119, 19);
-            this.txtSuffix.Name = "txtSuffix";
-            this.txtSuffix.Size = new System.Drawing.Size(36, 22);
-            this.txtSuffix.TabIndex = 0;
-            // 
-            // txtIncrement
-            // 
-            this.txtIncrement.Location = new System.Drawing.Point(103, 65);
-            this.txtIncrement.Name = "txtIncrement";
-            this.txtIncrement.Size = new System.Drawing.Size(36, 22);
-            this.txtIncrement.TabIndex = 0;
-            this.txtIncrement.Text = "1";
-            // 
-            // chPrefix
-            // 
-            this.chPrefix.AutoSize = true;
-            this.chPrefix.Location = new System.Drawing.Point(10, 22);
-            this.chPrefix.Name = "chPrefix";
-            this.chPrefix.Size = new System.Drawing.Size(54, 17);
-            this.chPrefix.TabIndex = 1;
-            this.chPrefix.Text = "Prefix";
-            this.chPrefix.UseVisualStyleBackColor = true;
-            // 
-            // chMiddle
-            // 
-            this.chMiddle.AutoSize = true;
-            this.chMiddle.Location = new System.Drawing.Point(71, 22);
-            this.chMiddle.Name = "chMiddle";
-            this.chMiddle.Size = new System.Drawing.Size(62, 17);
-            this.chMiddle.TabIndex = 1;
-            this.chMiddle.Text = "Middle";
-            this.chMiddle.UseVisualStyleBackColor = true;
-            // 
-            // cchSufix
-            // 
-            this.cchSufix.AutoSize = true;
-            this.cchSufix.Location = new System.Drawing.Point(139, 22);
-            this.cchSufix.Name = "cchSufix";
-            this.cchSufix.Size = new System.Drawing.Size(55, 17);
-            this.cchSufix.TabIndex = 1;
-            this.cchSufix.Text = "Suffix";
-            this.cchSufix.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Increment";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.chPrefix);
-            this.groupBox5.Controls.Add(this.cchSufix);
-            this.groupBox5.Controls.Add(this.chMiddle);
-            this.groupBox5.Location = new System.Drawing.Point(11, 98);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(213, 52);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Section Increment";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Prefix";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Middle";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(120, 44);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Suffix";
-            // 
-            // cbListBlok
-            // 
-            this.cbListBlok.FormattingEnabled = true;
-            this.cbListBlok.Location = new System.Drawing.Point(9, 37);
-            this.cbListBlok.Name = "cbListBlok";
-            this.cbListBlok.Size = new System.Drawing.Size(134, 21);
-            this.cbListBlok.TabIndex = 0;
-            // 
-            // btnPickBlok
-            // 
-            this.btnPickBlok.Location = new System.Drawing.Point(145, 37);
-            this.btnPickBlok.Name = "btnPickBlok";
-            this.btnPickBlok.Size = new System.Drawing.Size(64, 21);
-            this.btnPickBlok.TabIndex = 1;
-            this.btnPickBlok.Text = "Pick";
-            this.btnPickBlok.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Block Reference :";
-            // 
-            // chDefineAttributeValue
-            // 
-            this.chDefineAttributeValue.AutoSize = true;
-            this.chDefineAttributeValue.Location = new System.Drawing.Point(6, 21);
-            this.chDefineAttributeValue.Name = "chDefineAttributeValue";
-            this.chDefineAttributeValue.Size = new System.Drawing.Size(146, 17);
-            this.chDefineAttributeValue.TabIndex = 1;
-            this.chDefineAttributeValue.Text = "Define Attribute Value :";
-            this.chDefineAttributeValue.UseVisualStyleBackColor = true;
-            // 
-            // cbListAttribute
-            // 
-            this.cbListAttribute.FormattingEnabled = true;
-            this.cbListAttribute.Location = new System.Drawing.Point(68, 43);
-            this.cbListAttribute.Name = "cbListAttribute";
-            this.cbListAttribute.Size = new System.Drawing.Size(110, 21);
-            this.cbListAttribute.TabIndex = 0;
-            // 
-            // txtDefineAttributeValue
-            // 
-            this.txtDefineAttributeValue.Location = new System.Drawing.Point(222, 42);
-            this.txtDefineAttributeValue.Name = "txtDefineAttributeValue";
-            this.txtDefineAttributeValue.Size = new System.Drawing.Size(98, 22);
-            this.txtDefineAttributeValue.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 46);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Attribute :";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rdDefineArea);
-            this.groupBox2.Controls.Add(this.rdDefineLength);
-            this.groupBox2.Controls.Add(this.chDefineCustomAttribute);
-            this.groupBox2.Location = new System.Drawing.Point(6, 70);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(314, 46);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Section Define Value Attribute";
-            // 
-            // chDefineCustomAttribute
-            // 
-            this.chDefineCustomAttribute.AutoSize = true;
-            this.chDefineCustomAttribute.Location = new System.Drawing.Point(5, 19);
-            this.chDefineCustomAttribute.Name = "chDefineCustomAttribute";
-            this.chDefineCustomAttribute.Size = new System.Drawing.Size(124, 17);
-            this.chDefineCustomAttribute.TabIndex = 1;
-            this.chDefineCustomAttribute.Text = "Define on Drawing";
-            this.chDefineCustomAttribute.UseVisualStyleBackColor = true;
-            // 
-            // rdDefineLength
-            // 
-            this.rdDefineLength.AutoSize = true;
-            this.rdDefineLength.Location = new System.Drawing.Point(165, 18);
-            this.rdDefineLength.Name = "rdDefineLength";
-            this.rdDefineLength.Size = new System.Drawing.Size(61, 17);
-            this.rdDefineLength.TabIndex = 2;
-            this.rdDefineLength.TabStop = true;
-            this.rdDefineLength.Text = "Length";
-            this.rdDefineLength.UseVisualStyleBackColor = true;
-            // 
-            // rdDefineArea
-            // 
-            this.rdDefineArea.AutoSize = true;
-            this.rdDefineArea.Location = new System.Drawing.Point(244, 18);
-            this.rdDefineArea.Name = "rdDefineArea";
-            this.rdDefineArea.Size = new System.Drawing.Size(48, 17);
-            this.rdDefineArea.TabIndex = 2;
-            this.rdDefineArea.TabStop = true;
-            this.rdDefineArea.Text = "Area";
-            this.rdDefineArea.UseVisualStyleBackColor = true;
-            // 
-            // rdFollowRotation
-            // 
-            this.rdFollowRotation.AutoSize = true;
-            this.rdFollowRotation.Checked = true;
-            this.rdFollowRotation.Location = new System.Drawing.Point(6, 18);
-            this.rdFollowRotation.Name = "rdFollowRotation";
-            this.rdFollowRotation.Size = new System.Drawing.Size(108, 17);
-            this.rdFollowRotation.TabIndex = 2;
-            this.rdFollowRotation.TabStop = true;
-            this.rdFollowRotation.Text = "Follow Rotation";
-            this.rdFollowRotation.UseVisualStyleBackColor = true;
-            // 
-            // rdDefineRotation
-            // 
-            this.rdDefineRotation.AutoSize = true;
-            this.rdDefineRotation.Location = new System.Drawing.Point(6, 41);
-            this.rdDefineRotation.Name = "rdDefineRotation";
-            this.rdDefineRotation.Size = new System.Drawing.Size(125, 17);
-            this.rdDefineRotation.TabIndex = 2;
-            this.rdDefineRotation.Text = "Define On Drawing";
-            this.rdDefineRotation.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.comboBox1);
-            this.groupBox4.Location = new System.Drawing.Point(9, 67);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(203, 50);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Attribute For Increment";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.chDefineAttributeValue);
-            this.groupBox6.Controls.Add(this.txtDefineAttributeValue);
-            this.groupBox6.Controls.Add(this.groupBox2);
-            this.groupBox6.Controls.Add(this.cbListAttribute);
-            this.groupBox6.Location = new System.Drawing.Point(9, 123);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(352, 131);
-            this.groupBox6.TabIndex = 0;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Set For Define Attribute Value";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.rdDefineRotation);
-            this.groupBox7.Controls.Add(this.rdFollowRotation);
-            this.groupBox7.Location = new System.Drawing.Point(222, 37);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(139, 80);
-            this.groupBox7.TabIndex = 0;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Block Rotation";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(80, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(110, 21);
-            this.comboBox1.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 22);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Attribute :";
-            // 
             // formIncrementBlock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,19 +451,19 @@
             this.Load += new System.EventHandler(this.formIncrementBlock_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -503,7 +503,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbListToIncrement;
         private System.Windows.Forms.GroupBox groupBox7;
     }
 }

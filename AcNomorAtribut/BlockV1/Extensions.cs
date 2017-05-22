@@ -7,6 +7,7 @@ using System.Linq;
 using Autodesk.AutoCAD.DatabaseServices;
 using AcDataTable = Autodesk.AutoCAD.DatabaseServices.DataTable;
 using Autodesk.AutoCAD.Runtime;
+using Autodesk.AutoCAD.Geometry;
 
 namespace AcNomorAtribut
 {
@@ -108,6 +109,25 @@ namespace AcNomorAtribut
             if (br.IsDynamicBlock)
                 return br.DynamicBlockTableRecord.GetObject<BlockTableRecord>().Name;
             return br.Name;
+        }
+
+        public static TextInfo GetTextInfo(this DBText text)
+        {
+            return new TextInfo(text.Position, text.AlignmentPoint, text.Justify != AttachmentPoint.BaseLeft);
+        }
+
+        public static string GetAreaOfBoundaries(this BlockTableRecord btr, Autodesk.AutoCAD.EditorInput.Editor ed, Autodesk.AutoCAD.EditorInput.PromptPointResult pRes)
+        {
+
+
+            return "#";
+        }
+
+        public static Point3d GetAreaOfBoundaries(this Autodesk.AutoCAD.EditorInput.PromptEntityResult pEntRes)
+        {
+            Point3d p3d = new Point3d();
+            ObjectId objId = pEntRes.ObjectId;
+            return p3d;
         }
 
         // Creates a System.Data.DataTable from a BlockAttribute collection.
@@ -250,5 +270,142 @@ namespace AcNomorAtribut
             }
         }
 
+        public static AttributeReference AddAttributeReferences(this BlockReference br, int index, string value)
+        {
+            BlockTableRecord obj = br.BlockTableRecord.GetObject<BlockTableRecord>();
+            Transaction topTransaction = br.Database.TransactionManager.TopTransaction;
+            AttributeReference attributeReference = null;
+            AttributeDefinition[] array = obj.GetObjects<AttributeDefinition>().ToArray<AttributeDefinition>();
+            for (int i = 0; i < (int)array.Length; i++)
+            {
+                AttributeDefinition attributeDefinition = array[i];
+                AttributeReference attributeReference1 = new AttributeReference();
+                attributeReference1.SetAttributeFromBlock(attributeDefinition, br.BlockTransform);
+                Point3d position = attributeDefinition.Position;
+                attributeReference1.Position = position.TransformBy(br.BlockTransform);
+                if (attributeDefinition.Justify != AttachmentPoint.BaseLeft)
+                {
+                    position = attributeDefinition.AlignmentPoint;
+                    attributeReference1.AlignmentPoint = position.TransformBy(br.BlockTransform);
+                    attributeReference1.AdjustAlignment(br.Database);
+                }
+                if (attributeReference1.IsMTextAttribute)
+                {
+                    attributeReference1.UpdateMTextAttribute();
+                }
+                if (i == index)
+                {
+                    attributeReference1.TextString = value;
+                    attributeReference = attributeReference1;
+                }
+                br.AttributeCollection.AppendAttribute(attributeReference1);
+                topTransaction.AddNewlyCreatedDBObject(attributeReference1, true);
+            }
+            return attributeReference;
+        }
+
+        public static List<TextInfo> GetAttributesTextInfos(this BlockTableRecord btr)
+        {
+            return (
+                from att in btr.GetObjects<AttributeDefinition>()
+                select att.GetTextInfo()).ToList<TextInfo>();
+        }
+
+        public static ObjectId GetBlock(this BlockTable blockTable, string blockName)
+        {
+            string str;
+            ObjectId @null;
+            Database database = blockTable.Database;
+            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(blockName);
+            if (blockTable.Has(fileNameWithoutExtension))
+            {
+                return blockTable[fileNameWithoutExtension];
+            }
+            try
+            {
+                if (Path.GetExtension(blockName) == "")
+                {
+                    blockName = string.Concat(blockName, ".dwg");
+                }
+                str = (!File.Exists(blockName) ? HostApplicationServices.Current.FindFile(blockName, database, FindFileHint.Default) : blockName);
+                blockTable.UpgradeOpen();
+                using (Database database1 = new Database(false, true))
+                {
+                    database1.ReadDwgFile(str, FileShare.Read, true, null);
+                    @null = blockTable.Database.Insert(Path.GetFileNameWithoutExtension(blockName), database1, true);
+                }
+            }
+            catch
+            {
+                @null = ObjectId.Null;
+            }
+            return @null;
+        }
+
+        public static BlockTableRecord[] GetBlocksWithAttribute(this Database db)
+        {
+            Func<ObjectId, bool> func2 = null;
+            RXClass @class = RXObject.GetClass(typeof(AttributeDefinition));
+            return db.BlockTableId.GetObject<BlockTable>().GetObjects<BlockTableRecord>().Where<BlockTableRecord>((BlockTableRecord btr) => {
+                if (btr.IsLayout || btr.IsAnonymous || btr.IsFromExternalReference || btr.IsFromOverlayReference)
+                {
+                    return false;
+                }
+                IEnumerable<ObjectId> objectIds = btr.Cast<ObjectId>();
+                Func<ObjectId, bool> u003cu003e9_1 = func2;
+                if (u003cu003e9_1 == null)
+                {
+                    Func<ObjectId, bool> func = (ObjectId id) => id.ObjectClass.IsDerivedFrom(@class);
+                    Func<ObjectId, bool> func1 = func;
+                    func2 = func;
+                    u003cu003e9_1 = func1;
+                }
+                return objectIds.Any<ObjectId>(u003cu003e9_1);
+            }).OrderBy<BlockTableRecord, string>((BlockTableRecord btr) => btr.Name).ToArray<BlockTableRecord>();
+        }
+
+        public static int IndexOf(this BlockTableRecord btr, AttributeDefinition attDef)
+        {
+            return (
+                from att in btr.GetObjects<AttributeDefinition>()
+                where !att.Constant
+                select att).ToList<AttributeDefinition>().FindIndex((AttributeDefinition x) => x == attDef);
+        }
+
+        public static void SetAttributeValue(this BlockReference br, int index, string value)
+        {
+            br.AttributeCollection[index].GetObject<AttributeReference>(OpenMode.ForWrite).TextString = value;
+        }
+
     }
+
+    public class TextInfo
+    {
+        public Point3d Alignment
+        {
+            get;
+            set;
+        }
+
+        public bool IsAligned
+        {
+            get;
+            set;
+        }
+
+        public Point3d Position
+        {
+            get;
+            set;
+        }
+
+        public TextInfo(Point3d position, Point3d alignment, bool aligned)
+        {
+            this.Position = position;
+            this.Alignment = alignment;
+            this.IsAligned = aligned;
+        }
+    }
+
+
 }

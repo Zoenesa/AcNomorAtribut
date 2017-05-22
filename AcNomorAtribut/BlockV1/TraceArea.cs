@@ -19,26 +19,26 @@ namespace AcNomorAtribut
             Document doc = AcAp.DocumentManager.MdiActiveDocument;
             Database db = doc.Database;
             Editor ed = doc.Editor;
-            PromptKeywordOptions pkOp = new PromptKeywordOptions("");
-            pkOp.Message = "\nUse Island Detection ";
-            pkOp.Keywords.Add("Yes");
-            pkOp.Keywords.Add("No");
-            pkOp.AllowNone = false;
-            PromptResult pr = ed.GetKeywords(pkOp);
-            if (pr.Status == PromptStatus.Cancel)
-            {
-                return null;
-            }
-            string pkostr = pr.StringResult;
-            bool flagIsland = false;
-            if (pkostr == "Yes") { flagIsland = true; } else { flagIsland = false; }
+            //PromptKeywordOptions pkOp = new PromptKeywordOptions("");
+            //pkOp.Message = "\nUse Island Detection ";
+            //pkOp.Keywords.Add("Yes");
+            //pkOp.Keywords.Add("No");
+            //pkOp.AllowNone = false;
+            //PromptResult pr = ed.GetKeywords(pkOp);
+            //if (pr.Status == PromptStatus.Cancel)
+            //{
+            //    return null;
+            //}
+            //string pkostr = pr.StringResult;
+            //bool flagIsland = false;
+            //if (pkostr == "Yes") { flagIsland = true; } else { flagIsland = false; }
             PromptPointResult ppr = ed.GetPoint("\nSelect Internal Point on Closed Area: ");
             if (ppr.Status != PromptStatus.OK)
             {
                 ed.WriteMessage("\n" + ppr.StringResult);
             }
             string value = null;
-            DBObjectCollection dbObjColl = ed.TraceBoundary(ppr.Value, flagIsland);
+            DBObjectCollection dbObjColl = ed.TraceBoundary(ppr.Value, false);
             Double area = 0;
             try
             {
@@ -118,7 +118,7 @@ namespace AcNomorAtribut
             PromptEntityResult pEntRes = ed.GetEntity(pEntOpt);
             if (pEntRes.Status == PromptStatus.OK)
             {
-
+                
             }
         }
 
@@ -237,6 +237,14 @@ namespace AcNomorAtribut
             }
         }
 
+        private static string valueAreaBoundary = "";
+
+        public static string ValueAreaBoundaries
+        {
+            get { return valueAreaBoundary; }
+            private set { valueAreaBoundary = value; }
+        }
+
         [CommandMethod("iab")]
         public static void testAttributedBlockInsert()
         {
@@ -284,6 +292,72 @@ namespace AcNomorAtribut
                     {
                         return;
                     }
+                    DBObjectCollection dbobjcoll = ed.TraceBoundary(ppr.Value, false);
+                    Double area = 0;
+                    try
+                    {
+                        if (dbobjcoll.Count > 0)
+                        {
+                            BlockTableRecord blockTableRecmSpace = (BlockTableRecord)tr.GetObject(bt[BlockTableRecord.ModelSpace], OpenMode.ForRead);
+                            ObjectIdCollection traceObjIds = new ObjectIdCollection();
+                            foreach (DBObject obj in dbobjcoll)
+                            {
+                                Entity EntTrace = obj as Entity;
+                                if (EntTrace != null)
+                                {
+                                    if (EntTrace is Polyline)
+                                    {
+                                        Polyline p = (Polyline)EntTrace;
+                                        if (p.Closed)
+                                        {
+                                            area = p.Area;
+                                        }
+                                        
+                                    }
+                                    if (EntTrace is Line)
+                                    {
+                                        Line Ln = (Line)EntTrace;
+                                        if (Ln.Closed)
+                                        {
+                                            area = Ln.Area;
+                                        }
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch 
+                    {
+                        throw;
+                    }
+                    string presisi = "#";
+                    switch (db.Auprec)
+                    {
+                        case 0:
+                            presisi = "#";
+                            break;
+                        case 1:
+                            presisi = "#0.0";
+                            break;
+                        case 2:
+                            presisi = "#0.00";
+                            break;
+                        case 3:
+                            presisi = "#0.000";
+                            break;
+                        case 4:
+                            presisi = "#0.0000";
+                            break;
+                        case 5:
+                            presisi = "#0.00000";
+                            break;
+                        default:
+                            presisi = "#0.00";
+                            break;
+                    }
+
+                    valueAreaBoundary = area.ToString(presisi);
 
                     BlockTableRecord btr = (BlockTableRecord)tr.GetObject(db.CurrentSpaceId, OpenMode.ForWrite);
                     ObjectContextCollection occ = db.ObjectContextManager.GetContextCollection("ACDB_ANNOTATIONSCALES");
@@ -333,8 +407,6 @@ namespace AcNomorAtribut
                 // Autodesk.AutoCAD.ApplicationServices.Application.ShowAlertDialog("Pokey")
             }
         }
-
-        
     }
 
 
