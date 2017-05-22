@@ -281,6 +281,7 @@
             // 
             // cbListToIncrement
             // 
+            this.cbListToIncrement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbListToIncrement.FormattingEnabled = true;
             this.cbListToIncrement.Location = new System.Drawing.Point(80, 19);
             this.cbListToIncrement.Name = "cbListToIncrement";
@@ -298,6 +299,7 @@
             // 
             // cbListBlok
             // 
+            this.cbListBlok.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbListBlok.FormattingEnabled = true;
             this.cbListBlok.Location = new System.Drawing.Point(9, 37);
             this.cbListBlok.Name = "cbListBlok";
@@ -390,6 +392,7 @@
             // 
             // cbListAttribute
             // 
+            this.cbListAttribute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbListAttribute.FormattingEnabled = true;
             this.cbListAttribute.Location = new System.Drawing.Point(68, 43);
             this.cbListAttribute.Name = "cbListAttribute";

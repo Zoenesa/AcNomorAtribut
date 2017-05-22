@@ -444,7 +444,11 @@ namespace AcNomorAtribut
         public void showFormAutoNumber()
         {
             formIncrementBlock frmauto = new formIncrementBlock();
-            AcAp.ShowModalDialog(frmauto);
+            if (frmauto.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+
+            }
+            //AcAp.ShowModalDialog(frmauto);
         }
 
 

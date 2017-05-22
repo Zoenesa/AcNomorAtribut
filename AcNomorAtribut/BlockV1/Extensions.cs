@@ -29,6 +29,7 @@ namespace AcNomorAtribut
         public static IEnumerable<T> GetObjects<T>(this IEnumerable ids) where T : DBObject
         {
             return ids.GetObjects<T>(OpenMode.ForRead);
+            //return source.GetObjects<T>(OpenMode.ForRead, false, false);
         }
 
         // Opens a collection of DBObject in the given mode (kaefer @ TheSwamp)

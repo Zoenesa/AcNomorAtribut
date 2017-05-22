@@ -23,6 +23,17 @@ namespace AcNomorAtribut
             cbListBlok.DisplayMember = "Name";
             cbListAttribute.DisplayMember = "Tag";
             cbListToIncrement.DisplayMember = "Tag";
+            this.db = HostApplicationServices.WorkingDatabase;
+            using (Transaction tr = this.db.TransactionManager.StartTransaction())
+            {
+                BlockTableRecord[] blockwithAtr = this.db.GetBlocksWithAttribute();
+                this.cbListBlok.DataSource = blockwithAtr;
+                if (blockwithAtr != null && blockwithAtr.Length != 0)
+                {
+                    this.cbListBlok.SelectedIndex = 0;
+                }
+                tr.Commit();
+            }
 
         }
          
@@ -46,12 +57,12 @@ namespace AcNomorAtribut
 
         private void formIncrementBlock_Load(object sender, EventArgs e)
         {
-            doc = AcAp.DocumentManager.MdiActiveDocument;
-            db = doc.Database;
-            _editor = doc.Editor;
-            lanjut = true;
-            BlockTableRecord[] listBlockWithAtribute = db.GetBlocksWithAttribute();
-            cbListBlok.DataSource = listBlockWithAtribute;
+            //doc = AcAp.DocumentManager.MdiActiveDocument;
+            //db = doc.Database;
+            //_editor = doc.Editor;
+            //lanjut = true;
+            //BlockTableRecord[] listBlockWithAtribute = db.GetBlocksWithAttribute();
+            //cbListBlok.DataSource = listBlockWithAtribute;
         }
 
         int numinc = 0;
